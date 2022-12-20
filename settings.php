@@ -1170,6 +1170,31 @@ if ($hassiteconfig || has_capability('theme/boost_union:configure', context_syst
         $description = get_string('outsideregionsplacement_desc', 'theme_boost_union', null, true);
         $setting = new admin_setting_configselect($name, $title, $description,
                 THEME_BOOST_UNION_SETTING_OUTSIDEREGIONSPLACEMENT_NEXTMAINCONTENT, $outsideregionsplacementoptions);
+        // Create drawers behaviour heading.
+        $name = 'theme_boost_union/righthandblockdrawerbehaviour';
+        $title = get_string('righthandblockdrawerbehaviour', 'theme_boost_union', null, true);
+        $setting = new admin_setting_heading($name, $title, null);
+        $tab->add($setting);
+
+        // Setting: Show blocks drawer when logged out users visit.
+        $name = 'theme_boost_union/showrighthandblockdraweronvisit';
+        $title = get_string('showrighthandblockdraweronvisitsetting', 'theme_boost_union', null, true);
+        $description = get_string('showrighthandblockdraweronvisitsetting_desc', 'theme_boost_union', null, true);
+        $setting = new admin_setting_configselect($name, $title, $description, THEME_BOOST_UNION_SETTING_SELECT_NO, $yesnooption);
+        $tab->add($setting);
+
+        // Setting: Show blocks drawer when user logs in for the very first time.
+        $name = 'theme_boost_union/showrighthandblockdraweronfirstlogin';
+        $title = get_string('showrighthandblockdraweronfirstloginsetting', 'theme_boost_union', null, true);
+        $description = get_string('showrighthandblockdraweronfirstloginsetting_desc', 'theme_boost_union', null, true);
+        $setting = new admin_setting_configselect($name, $title, $description, THEME_BOOST_UNION_SETTING_SELECT_NO, $yesnooption);
+        $tab->add($setting);
+
+        // Setting: Show blocks drawer when user logs in as guest.
+        $name = 'theme_boost_union/showrighthandblockdraweronguestlogin';
+        $title = get_string('showrighthandblockdraweronguestloginsetting', 'theme_boost_union', null, true);
+        $description = get_string('showrighthandblockdraweronguestloginsetting_desc', 'theme_boost_union', null, true);
+        $setting = new admin_setting_configselect($name, $title, $description, THEME_BOOST_UNION_SETTING_SELECT_NO, $yesnooption);
         $tab->add($setting);
 
         // Add tab to settings page.

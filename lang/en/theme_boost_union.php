@@ -643,6 +643,18 @@ $string['tileordersetting_desc'] = 'With this setting, you define the order posi
 $string['tiletitlesetting'] = 'Advertisement tile {$a->no} title';
 $string['tiletitlesetting_desc'] = 'Here, you enter the title which should be displayed in the advertisement tile {$a->no}. This is an optional setting, the advertisement tile will be shown even if you do not set a title.';
 
+// ... Section: Right-hand block drawer behaviour.
+$string['righthandblockdrawerbehaviour'] = 'Right-hand block drawer';
+// ... ... Setting: Show blocks drawer on visit setting.
+$string['showrighthandblockdraweronvisitsetting'] = 'Show right-hand block drawer on visit';
+$string['showrighthandblockdraweronvisitsetting_desc'] = 'With this setting on \'yes\', the right-hand block drawer will be displayed in its expanded state by default. This only applies to users who are not logged in and does not overwrite the toggle state of each individual user.';
+// ... ... Setting: Show right-hand block drawer on first login setting.
+$string['showrighthandblockdraweronfirstloginsetting'] = 'Show right-hand block drawer on first login';
+$string['showrighthandblockdraweronfirstloginsetting_desc'] = 'With this setting on \'yes\', the right-hand block drawer will be displayed in its expanded state by default. This only applies to users who log in for the very first time and does not overwrite the toggle state of each individual user.';
+// ... ... Setting: Show right-hand block drawer on guest login setting.
+$string['showrighthandblockdraweronguestloginsetting'] = 'Show right-hand block drawer on guest login';
+$string['showrighthandblockdraweronguestloginsetting_desc'] = 'With this setting on \'yes\', the right-hand block drawer will be displayed in its expanded state by default. This only applies to users who log in as a guest.';
+
 // Privacy API.
 $string['privacy:metadata'] = 'The Boost Union theme does not store any personal data about any user.';
 

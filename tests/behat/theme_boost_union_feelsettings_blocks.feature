@@ -4,14 +4,14 @@ Feature: Configuring the theme_boost_union plugin for the "Blocks" tab on the "F
   As admin
   I need to be able to configure the theme Boost Union plugin
 
-  Background:
+  Background: 
     Given the following "users" exist:
       | username |
       | student1 |
       | teacher1 |
     And the following "categories" exist:
-      | name        | category | idnumber |
-      | Category A  | 0        | CATA     |
+      | name       | category | idnumber |
+      | Category A |        0 | CATA     |
     And the following "courses" exist:
       | fullname | shortname | format |
       | Course 1 | C1        | topics |
@@ -40,22 +40,22 @@ Feature: Configuring the theme_boost_union plugin for the "Blocks" tab on the "F
     And I reload the page
     Then "#theme-block-region-<region>" "css_element" <should> exist
 
-    Examples:
-      | region           | settingvalue                                                                                                                                                                    | should     |
-      | outside-top      | outside-top                                                                                                                                                                     | should     |
-      | outside-left     | outside-left                                                                                                                                                                    | should     |
-      | outside-right    | outside-right                                                                                                                                                                   | should     |
-      | outside-bottom   | outside-bottom                                                                                                                                                                  | should     |
-      | footer-left      | footer-left                                                                                                                                                                     | should     |
-      | footer-right     | footer-right                                                                                                                                                                    | should     |
-      | footer-center    | footer-center                                                                                                                                                                   | should     |
-      | content-upper    | content-upper                                                                                                                                                                   | should     |
-      | content-lower    | content-lower                                                                                                                                                                   | should     |
-      | header           | header                                                                                                                                                                          | should     |
-      | outside-top      | outside-top,outside-bottom                                                                                                                                                      | should     |
-      | outside-top      | outside-top,outside-left,outside-right,outside-bottom,footer-left,footer-right,footer-center,offcanvas-left,offcanvas-right,offcanvas-center,content-upper,content-lower,header | should     |
-      | outside-top      | outside-bottom                                                                                                                                                                  | should not |
-      | outside-top      | footer-left,footer-right                                                                                                                                                        | should not |
+    Examples: 
+      | region         | settingvalue                                                                                                                                                                    | should     |
+      | outside-top    | outside-top                                                                                                                                                                     | should     |
+      | outside-left   | outside-left                                                                                                                                                                    | should     |
+      | outside-right  | outside-right                                                                                                                                                                   | should     |
+      | outside-bottom | outside-bottom                                                                                                                                                                  | should     |
+      | footer-left    | footer-left                                                                                                                                                                     | should     |
+      | footer-right   | footer-right                                                                                                                                                                    | should     |
+      | footer-center  | footer-center                                                                                                                                                                   | should     |
+      | content-upper  | content-upper                                                                                                                                                                   | should     |
+      | content-lower  | content-lower                                                                                                                                                                   | should     |
+      | header         | header                                                                                                                                                                          | should     |
+      | outside-top    | outside-top,outside-bottom                                                                                                                                                      | should     |
+      | outside-top    | outside-top,outside-left,outside-right,outside-bottom,footer-left,footer-right,footer-center,offcanvas-left,offcanvas-right,offcanvas-center,content-upper,content-lower,header | should     |
+      | outside-top    | outside-bottom                                                                                                                                                                  | should not |
+      | outside-top    | footer-left,footer-right                                                                                                                                                        | should not |
 
   @javascript
   Scenario Outline: Setting: Enable additional block regions (on the Dashboard page where all but the content-* regions are offered)
@@ -69,22 +69,22 @@ Feature: Configuring the theme_boost_union plugin for the "Blocks" tab on the "F
     And I reload the page
     Then "#theme-block-region-<region>" "css_element" <should> exist
 
-    Examples:
-      | region           | settingvalue                                                                                                                                        | should     |
-      | outside-top      | outside-top                                                                                                                                         | should     |
-      | outside-left     | outside-left                                                                                                                                        | should     |
-      | outside-right    | outside-right                                                                                                                                       | should     |
-      | outside-bottom   | outside-bottom                                                                                                                                      | should     |
-      | footer-left      | footer-left                                                                                                                                         | should     |
-      | footer-right     | footer-right                                                                                                                                        | should     |
-      | footer-center    | footer-center                                                                                                                                       | should     |
-      | content-upper    | outside-top                                                                                                                                         | should not |
-      | content-lower    | outside-top                                                                                                                                         | should not |
-      | header           | header                                                                                                                                              | should     |
-      | outside-top      | outside-top,outside-bottom                                                                                                                          | should     |
-      | outside-top      | outside-top,outside-left,outside-right,outside-bottom,footer-left,footer-right,footer-center,offcanvas-left,offcanvas-right,offcanvas-center,header | should     |
-      | outside-top      | outside-bottom                                                                                                                                      | should not |
-      | outside-top      | footer-left,footer-right                                                                                                                            | should not |
+    Examples: 
+      | region         | settingvalue                                                                                                                                        | should     |
+      | outside-top    | outside-top                                                                                                                                         | should     |
+      | outside-left   | outside-left                                                                                                                                        | should     |
+      | outside-right  | outside-right                                                                                                                                       | should     |
+      | outside-bottom | outside-bottom                                                                                                                                      | should     |
+      | footer-left    | footer-left                                                                                                                                         | should     |
+      | footer-right   | footer-right                                                                                                                                        | should     |
+      | footer-center  | footer-center                                                                                                                                       | should     |
+      | content-upper  | outside-top                                                                                                                                         | should not |
+      | content-lower  | outside-top                                                                                                                                         | should not |
+      | header         | header                                                                                                                                              | should     |
+      | outside-top    | outside-top,outside-bottom                                                                                                                          | should     |
+      | outside-top    | outside-top,outside-left,outside-right,outside-bottom,footer-left,footer-right,footer-center,offcanvas-left,offcanvas-right,offcanvas-center,header | should     |
+      | outside-top    | outside-bottom                                                                                                                                      | should not |
+      | outside-top    | footer-left,footer-right                                                                                                                            | should not |
 
   @javascript
   Scenario Outline: Setting: Enable additional block regions (on a category overview page where not all regions are offered)
@@ -99,22 +99,22 @@ Feature: Configuring the theme_boost_union plugin for the "Blocks" tab on the "F
     And I reload the page
     Then "#theme-block-region-<region>" "css_element" <should> exist
 
-    Examples:
-      | region           | settingvalue                                                                                                      | should     |
-      | outside-top      | outside-top                                                                                                       | should     |
-      | outside-bottom   | outside-bottom                                                                                                    | should     |
-      | footer-left      | footer-left                                                                                                       | should     |
-      | footer-right     | footer-right                                                                                                      | should     |
-      | footer-center    | footer-center                                                                                                     | should     |
-      | outside-left     | outside-top                                                                                                       | should not |
-      | outside-right    | outside-top                                                                                                       | should not |
-      | content-upper    | outside-top                                                                                                       | should not |
-      | content-lower    | outside-top                                                                                                       | should not |
-      | header           | outside-top                                                                                                       | should not |
-      | outside-top      | outside-top,outside-bottom                                                                                        | should     |
-      | outside-top      | outside-top,outside-bottom,footer-left,footer-right,footer-center,offcanvas-left,offcanvas-right,offcanvas-center | should     |
-      | outside-top      | outside-bottom                                                                                                    | should not |
-      | outside-top      | footer-left,footer-right                                                                                          | should not |
+    Examples: 
+      | region         | settingvalue                                                                                                      | should     |
+      | outside-top    | outside-top                                                                                                       | should     |
+      | outside-bottom | outside-bottom                                                                                                    | should     |
+      | footer-left    | footer-left                                                                                                       | should     |
+      | footer-right   | footer-right                                                                                                      | should     |
+      | footer-center  | footer-center                                                                                                     | should     |
+      | outside-left   | outside-top                                                                                                       | should not |
+      | outside-right  | outside-top                                                                                                       | should not |
+      | content-upper  | outside-top                                                                                                       | should not |
+      | content-lower  | outside-top                                                                                                       | should not |
+      | header         | outside-top                                                                                                       | should not |
+      | outside-top    | outside-top,outside-bottom                                                                                        | should     |
+      | outside-top    | outside-top,outside-bottom,footer-left,footer-right,footer-center,offcanvas-left,offcanvas-right,offcanvas-center | should     |
+      | outside-top    | outside-bottom                                                                                                    | should not |
+      | outside-top    | footer-left,footer-right                                                                                          | should not |
 
   @javascript
   Scenario Outline: Setting: Use additional block regions (on a course page and the frontpage where all regions are offered)
@@ -142,7 +142,7 @@ Feature: Configuring the theme_boost_union plugin for the "Blocks" tab on the "F
     And I turn editing mode off
     Then I should see "Calendar" in the "#theme-block-region-<region>" "css_element"
 
-    Examples:
+    Examples: 
       | region         | settingvalue   |
       | outside-top    | outside-top    |
       | outside-left   | outside-left   |
@@ -171,7 +171,7 @@ Feature: Configuring the theme_boost_union plugin for the "Blocks" tab on the "F
     And I turn editing mode off
     Then I should see "Online users" in the "#theme-block-region-<region>" "css_element"
 
-    Examples:
+    Examples: 
       | region         | settingvalue   |
       | outside-top    | outside-top    |
       | outside-left   | outside-left   |
@@ -200,7 +200,7 @@ Feature: Configuring the theme_boost_union plugin for the "Blocks" tab on the "F
     And I turn editing mode off
     Then I should see "Online users" in the "#theme-block-region-<region>" "css_element"
 
-    Examples:
+    Examples: 
       | region         | settingvalue   |
       | outside-top    | outside-top    |
       | outside-bottom | outside-bottom |
@@ -259,7 +259,7 @@ Feature: Configuring the theme_boost_union plugin for the "Blocks" tab on the "F
     And "#theme-block-region-<region>" "css_element" should be visible
     And I should see "Online users" in the "#theme-block-region-<region>" "css_element"
 
-    Examples:
+    Examples: 
       | region           | settingvalue                                                                                                                                 |
       | offcanvas-left   | offcanvas-left                                                                                                                               |
       | offcanvas-right  | offcanvas-right                                                                                                                              |
@@ -290,7 +290,7 @@ Feature: Configuring the theme_boost_union plugin for the "Blocks" tab on the "F
     Then "#theme-block-region-<region>" "css_element" should exist
     And I should not see "Add a block" in the "#theme-block-region-<region>" "css_element"
 
-    Examples:
+    Examples: 
       | region         | editcapability          |
       | outside-left   | editregionoutsideleft   |
       | outside-right  | editregionoutsideright  |
@@ -330,7 +330,7 @@ Feature: Configuring the theme_boost_union plugin for the "Blocks" tab on the "F
     Then "#theme-block-region-<region>" "css_element" should exist
     And I should not see "Add a block" in the "#theme-block-region-<region>" "css_element"
 
-    Examples:
+    Examples: 
       | region           | editcapability            |
       | offcanvas-left   | editregionoffcanvasleft   |
       | offcanvas-center | editregionoffcanvascenter |
@@ -359,7 +359,7 @@ Feature: Configuring the theme_boost_union plugin for the "Blocks" tab on the "F
     And I reload the page
     Then "#theme-block-region-<region>" "css_element" should not exist
 
-    Examples:
+    Examples: 
       | region         | viewcapability          |
       | outside-left   | viewregionoutsideleft   |
       | outside-right  | viewregionoutsideright  |
@@ -398,7 +398,7 @@ Feature: Configuring the theme_boost_union plugin for the "Blocks" tab on the "F
     Then "#theme_boost_union-offcanvas-btn" "css_element" should not exist
     And "#theme-block-region-<region>" "css_element" should not exist
 
-    Examples:
+    Examples: 
       | region           | viewcapability            |
       | offcanvas-left   | viewregionoffcanvasleft   |
       | offcanvas-center | viewregionoffcanvascenter |
@@ -418,12 +418,12 @@ Feature: Configuring the theme_boost_union plugin for the "Blocks" tab on the "F
     And I should see "Add a block" in the "#theme-block-region-<region>" "css_element"
     Then DOM element "#theme-block-region-<region>" should have computed style "width" "<settingvalue>"
 
-    Examples:
+    Examples: 
       | region        | config                       | settingvalue |
-      | outside-left  | blockregionoutsideleftwidth  | 300px        |
-      | outside-left  | blockregionoutsideleftwidth  | 400px        |
-      | outside-right | blockregionoutsiderightwidth | 300px        |
-      | outside-right | blockregionoutsiderightwidth | 400px        |
+      | outside-left  | blockregionoutsideleftwidth  |        300px |
+      | outside-left  | blockregionoutsideleftwidth  |        400px |
+      | outside-right | blockregionoutsiderightwidth |        300px |
+      | outside-right | blockregionoutsiderightwidth |        400px |
 
   Scenario Outline: Setting: Block region width for 'Outside (top/bottom)' regions
     Given the following config values are set as admin:
@@ -436,7 +436,7 @@ Feature: Configuring the theme_boost_union plugin for the "Blocks" tab on the "F
     And I should see "Add a block" in the "#theme-block-region-<region>" "css_element"
     Then the "class" attribute of "#theme-block-region-<region>" "css_element" should contain "theme-block-region-outside-<settingvalue>"
 
-    Examples:
+    Examples: 
       | region         | config                        | settingvalue       |
       | outside-top    | blockregionoutsidetopwidth    | fullwidth          |
       | outside-top    | blockregionoutsidetopwidth    | coursecontentwidth |
@@ -455,7 +455,7 @@ Feature: Configuring the theme_boost_union plugin for the "Blocks" tab on the "F
     Then the "class" attribute of ".main-inner-wrapper" "css_element" should contain "<classcontain>"
     And the "class" attribute of ".main-inner-wrapper" "css_element" should not contain "<classnotcontain>"
 
-    Examples:
+    Examples: 
       | settingvalue    | classcontain                       | classnotcontain                    |
       | nextmaincontent | main-inner-outside-nextmaincontent | main-inner-outside-nearwindowedges |
       | nearwindowedges | main-inner-outside-nearwindowedges | main-inner-outside-nextmaincontent |
@@ -487,3 +487,109 @@ Feature: Configuring the theme_boost_union plugin for the "Blocks" tab on the "F
     And "#page-content" "css_element" should appear before "#theme-block-region-content-lower" "css_element"
     And "#theme-block-region-footer-left" "css_element" should appear before "#theme-block-region-footer-center" "css_element"
     And "#theme-block-region-footer-center" "css_element" should appear before "#theme-block-region-footer-right" "css_element"
+
+  Scenario: Test-Scenario 1.1: When the "showrighthandblockdraweronfirstlogin" setting is set to "yes" and I log in as a user for the first time I should see the drawer and the containing text block
+    Given the following config values are set as admin:
+      | config                               | value | plugin            |
+      | showrighthandblockdraweronfirstlogin | yes   | theme_boost_union |
+    And I log in as "admin"
+    And I am on site homepage
+    And I turn editing mode on
+    And I add the "Text" block
+    And I configure the "(new text block)" block
+    And I set the following fields to these values:
+      | Text block title | Text on all pages            |
+      | Content          | This is visible on all pages |
+    And I press "Save changes"
+    And I log out
+    When I log in as "student1"
+    And I am on site homepage
+    Then the "class" attribute of ".drawer-right" "css_element" should contain "show"
+
+  Scenario: Test-Scenario 1.2: When the "showrighthandblockdraweronfirstlogin" setting is set to "no" and I log in as a user for the first time I should not see the drawer and the containing text block
+    Given the following config values are set as admin:
+      | config                               | value | plugin            |
+      | showrighthandblockdraweronfirstlogin | no    | theme_boost_union |
+    And I log in as "admin"
+    And I am on site homepage
+    And I turn editing mode on
+    And I add the "Text" block
+    And I configure the "(new text block)" block
+    And I set the following fields to these values:
+      | Text block title | Text on all pages            |
+      | Content          | This is visible on all pages |
+    And I press "Save changes"
+    And I log out
+    When I log in as "student1"
+    And I am on site homepage
+    Then the "class" attribute of ".drawer-right" "css_element" should not contain "show"
+
+  Scenario: Test-Scenario 2.1: When the "showrighthandblockdraweronvisit" setting is set to "yes" and I visit the site I should see the drawer and the containing text block
+    Given the following config values are set as admin:
+      | config                          | value | plugin            |
+      | showrighthandblockdraweronvisit | yes   | theme_boost_union |
+    And I log in as "admin"
+    And I am on site homepage
+    And I turn editing mode on
+    And I add the "Text" block
+    And I configure the "(new text block)" block
+    And I set the following fields to these values:
+      | Text block title | Text on all pages            |
+      | Content          | This is visible on all pages |
+    And I press "Save changes"
+    And I log out
+    When I am on site homepage
+    Then the "class" attribute of ".drawer-right" "css_element" should contain "show"
+
+  Scenario: Test-Scenario 2.2: When the "showrighthandblockdraweronvisit" setting is set to "no" and I visit the site I should not see the drawer and the containing text block
+    Given the following config values are set as admin:
+      | config                          | value | plugin            |
+      | showrighthandblockdraweronvisit | no    | theme_boost_union |
+    And I log in as "admin"
+    And I am on site homepage
+    And I turn editing mode on
+    And I add the "Text" block
+    And I configure the "(new text block)" block
+    And I set the following fields to these values:
+      | Text block title | Text on all pages            |
+      | Content          | This is visible on all pages |
+    And I press "Save changes"
+    And I log out
+    When I am on site homepage
+    Then the "class" attribute of ".drawer-right" "css_element" should not contain "show"
+
+  Scenario: Test-Scenario 3.1: When the "showrighthandblockdraweronguestlogin" setting is set to "yes" and I log in as a guest I should see the drawer and the containing text block
+    Given the following config values are set as admin:
+      | config                               | value | plugin            |
+      | showrighthandblockdraweronguestlogin | yes   | theme_boost_union |
+    And I log in as "admin"
+    And I am on site homepage
+    And I turn editing mode on
+    And I add the "Text" block
+    And I configure the "(new text block)" block
+    And I set the following fields to these values:
+      | Text block title | Text on all pages            |
+      | Content          | This is visible on all pages |
+    And I press "Save changes"
+    And I log out
+    When I log in as "guest"
+    And I am on site homepage
+    Then the "class" attribute of ".drawer-right" "css_element" should contain "show"
+
+  Scenario: Test-Scenario 3.2: When the "showrighthandblockdraweronguestlogin" setting is set to "no" and I log in as a guest I should not see the drawer and the containing text block
+    Given the following config values are set as admin:
+      | config                               | value | plugin            |
+      | showrighthandblockdraweronguestlogin | no    | theme_boost_union |
+    And I log in as "admin"
+    And I am on site homepage
+    And I turn editing mode on
+    And I add the "Text" block
+    And I configure the "(new text block)" block
+    And I set the following fields to these values:
+      | Text block title | Text on all pages            |
+      | Content          | This is visible on all pages |
+    And I press "Save changes"
+    And I log out
+    When I log in as "guest"
+    And I am on site homepage
+    Then the "class" attribute of ".drawer-right" "css_element" should not contain "show"
