@@ -1,23 +1,76 @@
-@theme @theme_boost_union @theme_boost_union_feelsettings @theme_boost_union_feelsettings_links
+@theme @theme_boost_union @theme_boost_union_feelsettings @theme_boost_union_feelsettings_links @javascript
 Feature: Configuring the theme_boost_union plugin for the "Links" tab on the "Feel" page
   In order to use the features
   As admin
   I need to be able to configure the theme Boost Union plugin
 
   Background:
-    Given the following "users" exist:
-      | username |
-      | student1 |
-      | teacher1 |
-    And the following "courses" exist:
+    Given the following "courses" exist:
       | fullname | shortname |
       | Course 1 | C1        |
-    And the following "course enrolments" exist:
-      | user     | course | role           |
-      | teacher1 | C1     | editingteacher |
-      | student1 | C1     | student        |
+    And the following "activities" exist:
+      | activity | name        | intro                     					   			              | course   |
+      | label    | Label one   | <a href="mailto:test@test.de">Mail-Link</a> 				      | C1 	     |
+      | label    | Label two   | <a href="/brokenfile.php">Broken Link</a>  			      	| C1       |
+      | label    | Label three | <a href="https://www.externallink.com">Extrnal Link</a>  | C1       |
+		  | label    | Label three | <a href="/my/">Internal Link</a>  						            | C1       |
 
-  # Unfortunately, this can't be tested with Behat yet
-  # And as this feature file for this tab can't be empty, we just add a dummy step.
-  Scenario: Setting: Mark external links
-    When I log in as "admin"
+	Scenario: Setting: Mark mailto links - Set to "yes"
+		When the following config values are set as admin:
+			| config          | value | plugin            |
+			| markmailtolinks | yes   | theme_boost_union |
+		And I purge the theme cache and reload the theme
+		And I log in as "admin"
+		And I am on "Course 1" course homepage
+		Then element "a[href^='mailto']" pseudo-class "before" should contain "content": ""
+		And element "a[href='/my/']" pseudo-class "after" should contain "content": none
+
+	Scenario: Setting: Mark mailto links - Set to "no"
+		When the following config values are set as admin:
+			| config          | value | plugin            |
+			| markmailtolinks | no    | theme_boost_union |
+		And I purge the theme cache and reload the theme
+		And I log in as "admin"
+		And I am on "Course 1" course homepage
+		Then element "a[href^='mailto']" pseudo-class "before" should contain "content": none
+		And element "a[href='/my/']" pseudo-class "after" should contain "content": none
+
+	Scenario: Setting: Mark broken links - Set to "yes"
+		When the following config values are set as admin:
+			| config          | value | plugin            |
+			| markbrokenlinks | yes   | theme_boost_union |
+		And I purge the theme cache and reload the theme
+		And I log in as "admin"
+		And I am on "Course 1" course homepage
+		Then element "a[href*='/brokenfile.php']" pseudo-class "before" should contain "content": ""
+		And element "a[href='/my/']" pseudo-class "after" should contain "content": none
+
+	Scenario: Setting: Mark broken links - Set to "no"
+		When the following config values are set as admin:
+			| config          | value | plugin            |
+			| markbrokenlinks | no    | theme_boost_union |
+		And I purge the theme cache and reload the theme
+		And I log in as "admin"
+		And I am on "Course 1" course homepage
+		Then element "a[href*='/brokenfile.php']" pseudo-class "before" should contain "content": none
+		And element "a[href='/my/']" pseudo-class "after" should contain "content": none
+
+  Scenario: Setting: Mark external links - Set to "yes"
+    When the following config values are set as admin:
+			| config            | value | plugin            |
+			| markexternallinks | yes   | theme_boost_union |
+		And I purge the theme cache and reload the theme
+		And I log in as "admin"
+		And I am on "Course 1" course homepage
+		Then element "a[href*='https://www.externallink.com']" pseudo-class "after" should contain "content": ""
+		And element "a[href='/my/']" pseudo-class "after" should contain "content": none
+
+  Scenario: Setting: Mark external links - Set to "no"
+    When the following config values are set as admin:
+			| config            | value | plugin            |
+			| markexternallinks | no    | theme_boost_union |
+		And I purge the theme cache and reload the theme
+		And I log in as "admin"
+		And I am on "Course 1" course homepage
+		Then element "a[href*='https://www.externallink.com']" pseudo-class "after" should contain "content": none
+		And element "a[href='/my/']" pseudo-class "after" should contain "content": none

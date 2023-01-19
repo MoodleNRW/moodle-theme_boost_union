@@ -24,6 +24,10 @@
 
 require_once(__DIR__.'/../../../../lib/behat/behat_base.php');
 
+use Behat\Mink\Exception\ExpectationException as ExpectationException,
+    Behat\Mink\Exception\ElementNotFoundException as ElementNotFoundException,
+    Behat\Mink\Exception\DriverException as DriverException;
+
 /**
  * Class behat_theme_boost_union
  *
@@ -86,5 +90,70 @@ class behat_theme_boost_union extends behat_base {
      */
     public function i_am_on_maintenance_page() {
         $this->execute('behat_general::i_visit', ['/theme/boost_union/pages/maintenance.php']);
+    }
+
+    /**
+     * Checks if a property of a pseudo-class of an element contains a certain value.
+     *
+     * @Then /^element "(?P<selector>(?:[^"]|\\")*)" pseudo-class "(?P<pseudo>(?:[^"]|\\")*)" should contain "(?P<property>(?:[^"]|\\")*)": "(?P<value>(?:[^"]|\\")*)"$/
+     *
+     * @throws ElementNotFoundException
+     * @throws DriverException
+     * @param string $selector
+     * @param string $pseudo
+     * @param string $property
+     * @param string $value
+     */
+    public function i_check_for_pseudoclass_content($selector, $pseudo, $property, $value) {
+        if (!$this->running_javascript()) {
+            throw new DriverException("Pseudo-classes can only be evaluated with Javascript enabled.");
+        }
+
+        $getvalueofpseudoelementjs = "return (
+            window.getComputedStyle(document.querySelector(\"". $selector ."\"), ':".$pseudo."').getPropertyValue(\"".$property."\")
+        )";
+
+        $result = Normalizer::normalize($this->evaluate_script($getvalueofpseudoelementjs), Normalizer::FORM_C);
+        $eq = Normalizer::normalize('"'.$value.'"', Normalizer::FORM_C);
+
+        if (!($result == $eq)) {
+            throw new ExpectationException("Didn't find ".$value." in ".$selector.":".$pseudo.".", $this->getSession());
+        }
+    }
+
+    /**
+     * Checks if a property of a pseudo-class of an element contains 'none'.
+     *
+     * @Then /^element "(?P<selector>(?:[^"]|\\")*)" pseudo-class "(?P<pseudo>(?:[^"]|\\")*)" should contain "(?P<property>(?:[^"]|\\")*)": none$/
+     *
+     * @throws ExpectationException
+     * @throws DriverException
+     * @param string $selector
+     * @param string $pseudo
+     * @param string $property
+     */
+    public function pseudoclass_should_not_exist($selector, $pseudo, $property) {
+        if (!$this->running_javascript()) {
+            throw new DriverException("Pseudo-classes can only be evaluated with Javascript enabled.");
+        }
+
+        $pseudoelementcontent = "return (
+            window.getComputedStyle(document.querySelector(\"". $selector ."\"), ':".$pseudo."').getPropertyValue(\"".$property."\")
+        )";
+
+        $result = $this->evaluate_script($pseudoelementcontent);
+
+        if ($result != "none") {
+            throw new ExpectationException($selector.":".$pseudo.".content contains: ".$result, $this->getSession());
+        }
+    }
+
+    /**
+     * Purges theme cache and reloads the theme
+     *
+     * @Given /^I purge the theme cache and reload the theme$/
+     */
+    public function delete_theme_cache_and_reload_theme() {
+        theme_reset_all_caches();
     }
 }

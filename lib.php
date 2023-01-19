@@ -209,6 +209,9 @@ function theme_boost_union_get_pre_scss($theme) {
                 ";\n";
     }
 
+    // Setting: Mark mailto links.
+    $scss .= theme_boost_union_get_scss_to_mark_mailto_links($theme);
+
     // Prepend pre-scss.
     if (get_config('theme_boost_union', 'scsspre')) {
         $scss .= get_config('theme_boost_union', 'scsspre');
@@ -322,6 +325,9 @@ function theme_boost_union_get_extra_scss($theme) {
 
     // Setting: Mark external links.
     $content .= theme_boost_union_get_scss_to_mark_external_links($theme);
+
+    // Setting: Mark broken links.
+    $content .= theme_boost_union_get_scss_to_mark_broken_links($theme);
 
     return $content;
 }
