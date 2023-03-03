@@ -53,6 +53,9 @@ if ($activitynavigation == THEME_BOOST_UNION_SETTING_SELECT_YES) {
     $PAGE->theme->usescourseindex = false;
 }
 
+// Use default browser scrollbar if the feature is enabled.
+$defaultscrollbar = get_config('theme_boost_union', 'pagescrollbardefaultsetting');
+
 // Add block button in editing mode.
 $addblockbutton = $OUTPUT->addblockbutton();
 
@@ -154,7 +157,8 @@ $templatecontext = [
     'hasregionmainsettingsmenu' => !empty($regionmainsettingsmenu),
     'overflow' => $overflow,
     'headercontent' => $headercontent,
-    'addblockbutton' => $addblockbutton
+    'addblockbutton' => $addblockbutton,
+    'defaultscrollbar' => $defaultscrollbar
 ];
 
 // Include the template content for the course related hints.

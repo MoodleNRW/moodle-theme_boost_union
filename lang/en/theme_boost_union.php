@@ -54,6 +54,11 @@ $string['coursecontentmaxwidthsetting_desc'] = 'With this setting, you can overr
 // ... ... Setting: Medium content max width.
 $string['mediumcontentmaxwidthsetting'] = 'Medium content max width';
 $string['mediumcontentmaxwidthsetting_desc'] = 'With this setting, you can override Moodle\'s medium content width without manual SCSS modifications. This page width is used in certain activities like the database activity. By default, Moodle uses a medium content max width of 1120px. You can enter other pixel-based values like 1200px, but you can also enter a percentage-based value like 100% or a viewport-width value like 90vw.';
+// ... Section: Page scrollbar.
+$string['pagescrollbarheading'] = 'Page scrollbar';
+// ... ... Setting: Page scrollbar width.
+$string['pagescrollbardefaultsetting'] = 'Default page scrollbar';
+$string['pagescrollbardefaultsetting_desc'] = 'With this setting, you can override Moodle\'s default scrollbar width style. The default setting is "thin", which overrides the browsers\' default styling.';
 
 // Settings: Branding tab.
 $string['brandingtab'] = 'Branding';
@@ -557,7 +562,8 @@ $string['infobannermodesetting_desc'] = 'With this setting, you can define if in
 $string['infobannerdismissiblesetting'] = 'Info banner {$a->no} dismissible';
 $string['infobannerdismissiblesetting_desc'] = 'With this setting, you can make info banner {$a->no} dismissible. If the user clicks on the x-button in the info banner, the banner will be hidden for this user permanently. The visibility is not reset anyhow automatically, even if you change the content of the info banner. If you want to reset the visibility of the info banner, click the \'Reset visibility\' button below.';
 $string['infobannerstartsetting'] = 'Info banner {$a->no} start time';
-$string['infobannerstartsetting_desc'] = 'With this setting, you can define from when on info banner {$a->no} should be displayed. The configured time is interpreted as server time, not as user time.';$string['infobannerendsetting'] = 'Info banner {$a->no} end time';
+$string['infobannerstartsetting_desc'] = 'With this setting, you can define from when on info banner {$a->no} should be displayed. The configured time is interpreted as server time, not as user time.';
+$string['infobannerendsetting'] = 'Info banner {$a->no} end time';
 $string['infobannerendsetting_desc'] = 'With this setting, you can define until when info banner {$a->no} should be displayed. The configured time is interpreted as server time, not as user time.';
 
 // Settings: Functionality page.
