@@ -7,7 +7,9 @@ defined('MOODLE_INTERNAL') || die();
 require_once($CFG->dirroot.'/theme/boost_union/locallib.php');
 
 // Get theme config.
-//$config = get_config('theme_boost_union');
+$config = get_config('theme_boost_union');
+
+$slidershow = $config->{'slidershow'};
 
 $j = 3;
 $slider_content = array (
@@ -23,6 +25,7 @@ for ($i = 0; $i < $j; $i++) {
     $sldr->header = $slider_content[$i][0];
     $sldr->text = $slider_content[$i][1];
     $sldr->active = ($i == 0)? "active" : "";
+    $sldr->show = ($slidershow)? "yes" : "no :/";
     $test[$i] = $sldr;
 }
 

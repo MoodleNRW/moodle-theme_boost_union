@@ -42,7 +42,7 @@
     <div class="carousel-inner">
 
       {{#slider}}
-      
+      {{show}}
         <div class="carousel-item {{active}}">
           <img class="d-block w-100" src="https://picsum.photos/1200/600" alt="First slide">
           <div class="carousel-caption d-none d-md-block">
@@ -70,7 +70,7 @@ require(['jquery', 'theme_boost/bootstrap/carousel'], function($) {
 
   $('.carousel').carousel({
     ride: true,
-    interval: 5000
+    interval: 500000000
   });
 });
 

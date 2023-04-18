@@ -1661,6 +1661,43 @@ if ($hassiteconfig || has_capability('theme/boost_union:configure', context_syst
         $page->add($tab);
 
 
+        // Create slider tab.
+        $tab = new admin_settingpage('theme_boost_union_slider',
+            "Slider"); // get_string('tilestab', 'theme_boost_union', null, true)
+
+        // Create slider general heading.
+        $name = 'theme_boost_union/slidergeneralheading';
+        $title = get_string('slidergeneralheading', 'theme_boost_union', null, true);
+        $setting = new admin_setting_heading($name, $title, null);
+        $tab->add($setting);
+        
+        // Setting: Toggle whether Slider is shown.
+        $setting = new admin_setting_configcheckbox("theme_boost_union/slidershow", "Show Slider on Frontpage", "Description", 1);
+        $tab->add($setting);
+
+        // Setting: Toggle whether Slider back&forth Controls are shown.
+        $setting = new admin_setting_configcheckbox("theme_boost_union/sliderarrownav", "Show Slider back and forth navigation", "", 0);
+        $tab->add($setting);
+
+        // Setting: Toggle whether slides can have a caption text.
+        $setting = new admin_setting_configcheckbox("theme_boost_union/slidercaption", "Enable optional caption texts", "", 1);
+        $tab->add($setting);
+
+        // Setting: Toggle whether slides can have a content text.
+        $setting = new admin_setting_configcheckbox("theme_boost_union/slidercontent", "Enable optional content texts", "", 1);
+        $tab->add($setting);
+
+        $setting = new admin_setting_configselect("theme_boost_union/slideranimation", "Animation Type", "", 0, array(0=>'none',1=>'fade',2=>'slide'));
+        $tab->add($setting);
+
+        $setting = new admin_setting_configduration("theme_boost_union/sliderinterval", "Interval Speed", "Duration before slide changes", 5, 1);
+        $tab->add($setting);
+
+
+        // Add tab to settings page.
+        $page->add($tab);
+
+
         // Add settings page to the admin settings category.
         $ADMIN->add('theme_boost_union', $page);
 
