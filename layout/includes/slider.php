@@ -23,17 +23,32 @@ $slider_content = array (
 
 // only show slider if activated in the settings
 
-$j = 3;
-for ($i = 0; $i < $j; $i++) {
-    $sldr = new stdClass();
-    $sldr->show = ($slidershow)? true : false;
-    $sldr->id = $i;
-    $sldr->header = $slider_content[$i][0];
-    $sldr->text = $slider_content[$i][1];
-    $sldr->active = ($i == 0)? "active" : "";
-    
-    $slides[$i] = $sldr;
+if ($slidershow) {
+    $j = 3;
+    for ($i = 0; $i < $j; $i++) {
+        $sldr = new stdClass();
+        $sldr->show = ($slidershow)? true : false;
+        $sldr->id = 1;
+        $sldr->header = $slider_content[$i][0];
+        $sldr->text = $slider_content[$i][1];
+        $sldr->active = ($i == 0)? "active" : "";
+        
+        $slides[$i] = $sldr;
+    }
+} else {
+    $j = 1;
+    for ($i = 0; $i < $j; $i++) {
+        $sldr = new stdClass();
+        $sldr->show = false;
+        $sldr->id = 0;
+        $sldr->header = "";
+        $sldr->text = "";
+        $sldr->active = "";
+        
+        $slides[$i] = $sldr;
+    }
 }
+
 
 
 
