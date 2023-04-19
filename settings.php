@@ -1661,36 +1661,51 @@ if ($hassiteconfig || has_capability('theme/boost_union:configure', context_syst
         $page->add($tab);
 
 
-        // Create slider tab.
+        // Create Slider tab.
         $tab = new admin_settingpage('theme_boost_union_slider',
-            "Slider"); // get_string('tilestab', 'theme_boost_union', null, true)
+                get_string('slidertab', 'theme_boost_union', null, true));
 
-        // Create slider general heading.
+        // Create Slider general heading.
         $name = 'theme_boost_union/slidergeneralheading';
         $title = get_string('slidergeneralheading', 'theme_boost_union', null, true);
         $setting = new admin_setting_heading($name, $title, null);
         $tab->add($setting);
         
         // Setting: Toggle whether Slider is shown.
-        $setting = new admin_setting_configcheckbox("theme_boost_union/slidershow", "Show Slider on Frontpage", "Description", 1);
+        $title = get_string('slideractivatedsetting', 'theme_boost_union', null, true);
+        $setting = new admin_setting_configcheckbox("theme_boost_union/slideractivated", $title, "", 0);
         $tab->add($setting);
 
-        // Setting: Toggle whether Slider back&forth Controls are shown.
-        $setting = new admin_setting_configcheckbox("theme_boost_union/sliderarrownav", "Show Slider back and forth navigation", "", 0);
+        // Setting: Toggle whether Slider Arrow Controls are shown.
+        $title = get_string('sliderarrownavsetting', 'theme_boost_union', null, true);
+        $setting = new admin_setting_configcheckbox("theme_boost_union/sliderarrownavsetting", $title, "", 0);
+        $tab->add($setting);
+
+        // Setting: Toggle whether Slider Indicator Controls are shown.
+        $title = get_string('sliderindicatornavsetting', 'theme_boost_union', null, true);
+        $description = get_string('sliderindicatornavsetting_desc', 'theme_boost_union', null, true);
+        $setting = new admin_setting_configcheckbox("theme_boost_union/sliderindicatornavsetting", $title, "", 0);
         $tab->add($setting);
 
         // Setting: Toggle whether slides can have a caption text.
-        $setting = new admin_setting_configcheckbox("theme_boost_union/slidercaption", "Enable optional caption texts", "", 1);
+        $title = get_string('slidercaptionsetting', 'theme_boost_union', null, true);
+        $setting = new admin_setting_configcheckbox("theme_boost_union/slidercaptionsetting", $title, "", 0);
         $tab->add($setting);
 
         // Setting: Toggle whether slides can have a content text.
-        $setting = new admin_setting_configcheckbox("theme_boost_union/slidercontent", "Enable optional content texts", "", 1);
+        $title = get_string('slidercontentsetting', 'theme_boost_union', null, true);
+        $setting = new admin_setting_configcheckbox("theme_boost_union/slidercontentsetting", $title, "", 0);
         $tab->add($setting);
 
-        $setting = new admin_setting_configselect("theme_boost_union/slideranimation", "Animation Type", "", 0, array(0=>'none',1=>'fade',2=>'slide'));
+        // Setting: Select a slide-animation.
+        $title = get_string('slideranimationsetting', 'theme_boost_union', null, true);
+        $setting = new admin_setting_configselect("theme_boost_union/slideranimationsetting", $title, "", 0, array(0=>'none',1=>'fade',2=>'slide'));
         $tab->add($setting);
-
-        $setting = new admin_setting_configduration("theme_boost_union/sliderinterval", "Interval Speed", "Duration before slide changes", 5, 1);
+        
+        //Setting: Set interval speed.
+        $title = get_string('sliderintervalsetting', 'theme_boost_union', null, true);
+        $description = get_string('sliderintervalsetting_desc', 'theme_boost_union', null, true);
+        $setting = new admin_setting_configduration("theme_boost_union/sliderintervalsetting", $title, $description, 5, 1);
         $tab->add($setting);
 
 
@@ -1700,6 +1715,8 @@ if ($hassiteconfig || has_capability('theme/boost_union:configure', context_syst
 
         // Add settings page to the admin settings category.
         $ADMIN->add('theme_boost_union', $page);
+
+
 
         // Create Functionality settings page with tabs
         // (and allow users with the theme/boost_union:configure capability to access it).
