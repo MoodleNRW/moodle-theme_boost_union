@@ -1673,7 +1673,7 @@ if ($hassiteconfig || has_capability('theme/boost_union:configure', context_syst
         
         // Setting: Toggle whether Slider is shown.
         $title = get_string('slideractivatedsetting', 'theme_boost_union', null, true);
-        $setting = new admin_setting_configcheckbox("theme_boost_union/slideractivated", $title, "", 0);
+        $setting = new admin_setting_configcheckbox("theme_boost_union/slideractivatedsetting", $title, "", 0);
         $tab->add($setting);
 
         // Setting: Toggle whether Slider Arrow Controls are shown.
