@@ -643,9 +643,9 @@ $string['tileordersetting_desc'] = 'With this setting, you define the order posi
 $string['tiletitlesetting'] = 'Advertisement tile {$a->no} title';
 $string['tiletitlesetting_desc'] = 'Here, you enter the title which should be displayed in the advertisement tile {$a->no}. This is an optional setting, the advertisement tile will be shown even if you do not set a title.';
 
-// Settings: Advertisement tiles.
+// Settings: Slider.
 $string['slidertab'] = 'Slider';
-// ... Section: Advertisement tiles general.
+// ... Section: Slider general.
 $string['slidergeneralheading'] = 'Slider general';
 $string['slideractivatedsetting'] = 'Activate Slider to show on frontpage.';
 $string['sliderarrownavsetting'] = 'Enable Slider arrow navigation';
@@ -655,6 +655,14 @@ $string['slidercontentsetting'] = 'Enable optional content texts';
 $string['slideranimationsetting'] = 'Animation Type';
 $string['sliderintervalsetting'] = 'Interval Speed';
 $string['sliderintervalsetting_desc'] = 'Duration before slide changes';
+// ... Section: One Slide.
+$string['oneslidetab'] = 'Slide 1';
+$string['oneslidepickimage'] = 'Choose a background image';
+$string['oneslideimagetitle'] = 'Image title';
+$string['oneslidelink'] = 'Link behind Image';
+$string['oneslidelinktitle'] = 'Link title';
+$string['oneslidecaption'] = 'Write a Caption Text';
+$string['oneslidecontent'] = 'Write a Content Text';
 
 // ... Section: Site home right-hand block drawer behaviour.
 $string['sitehomerighthandblockdrawerbehaviour'] = 'Site home right-hand block drawer';

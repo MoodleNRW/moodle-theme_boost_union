@@ -1708,10 +1708,45 @@ if ($hassiteconfig || has_capability('theme/boost_union:configure', context_syst
         $setting = new admin_setting_configduration("theme_boost_union/sliderintervalsetting", $title, $description, 5, 1);
         $tab->add($setting);
 
+        // Create Slide heading.
+        $name = 'theme_boost_union/oneslidetab';
+        $title = get_string('oneslidetab', 'theme_boost_union', null, true);
+        $setting = new admin_setting_heading($name, $title, null);
+        $tab->add($setting);
+
+        // Setting: Select picture.
+        $title = get_string('oneslidepickimage', 'theme_boost_union', null, true);
+        $setting = new admin_setting_configstoredfile('oneslidepickimage', $title, "", "sliderbackgroundimage", 0,
+                array('maxfiles' => 1, 'accepted_types' => 'web_image'));
+        $tab->add($setting);
+
+        // Setting: Set title for picture.
+        $title = get_string('oneslideimagetitle', 'theme_boost_union', null, true);
+        $setting = new admin_setting_configtext('oneslideimagetitle', $title, "", "");
+        $tab->add($setting);
+
+        // Setting: Set link for slide. 
+        $title = get_string('oneslidelink', 'theme_boost_union', null, true);
+        $setting = new admin_setting_configtext('oneslidelink', $title, "", "");
+        $tab->add($setting);
+
+        // Setting: Set title for link. 
+        $title = get_string('oneslidelinktitle', 'theme_boost_union', null, true);
+        $setting = new admin_setting_configtext('oneslidelinktitle', $title, "", "");
+        $tab->add($setting);
+
+        // Setting: Set Caption text. 
+        $title = get_string('oneslidecaption', 'theme_boost_union', null, true);
+        $setting = new admin_setting_configtext('oneslidecaption', $title, "", "");
+        $tab->add($setting);
+        
+        // Setting: Set Content text. 
+        $title = get_string('oneslidecontent', 'theme_boost_union', null, true);
+        $setting = new admin_setting_configtext('oneslidecontent', $title, "", "");
+        $tab->add($setting);
 
         // Add tab to settings page.
         $page->add($tab);
-
 
         // Add settings page to the admin settings category.
         $ADMIN->add('theme_boost_union', $page);
