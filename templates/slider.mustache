@@ -33,7 +33,7 @@
     }
 }}
 
-
+{{#slidergeneralsettings.show}}
   <div id="slider">
     
 
@@ -41,7 +41,7 @@
       <!-- ..... -->
 
       <div class="carousel-inner">
-        {{#slider}}
+        {{#slidecontent}}
           <div class="carousel-item {{active}}">
             <img class="d-block w-100" src="https://picsum.photos/1200/600?random={{id}}" alt="First slide">
             <div class="carousel-caption d-none d-md-block">
@@ -50,7 +50,7 @@
               <p>{{id}}</p>
             </div>
           </div>
-        {{/slider}}
+        {{/slidecontent}}
         
       </div>
       <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
@@ -65,6 +65,7 @@
 
     
   </div>
+{{/slidergeneralsettings.show}}
 
 
 

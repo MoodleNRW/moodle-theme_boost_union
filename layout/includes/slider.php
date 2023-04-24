@@ -23,6 +23,12 @@ $slider_content = array (
 
 // only show slider if activated in the settings
 
+$generalsettings = new stdClass();
+$generalsettings->show = $config->{'slideractivatedsetting'};
+
+$templatecontext['slidergeneralsettings'] = $generalsettings;
+
+
 if ($slidershow) {
     $j = 3;
     for ($i = 0; $i < $j; $i++) {
@@ -49,7 +55,4 @@ if ($slidershow) {
     }
 }
 
-
-
-
-$templatecontext['slider'] = $slides;
+$templatecontext['slidecontent'] = $slides;
