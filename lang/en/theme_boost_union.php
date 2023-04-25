@@ -656,7 +656,7 @@ $string['slideranimationsetting'] = 'Animation Type';
 $string['sliderintervalsetting'] = 'Interval Speed';
 $string['sliderintervalsetting_desc'] = 'Duration before slide changes';
 // ... Section: One Slide.
-$string['oneslidetab'] = 'Slide 1';
+$string['oneslidetab'] = 'Slide {$a->no}';
 $string['oneslidepickimage'] = 'Choose a background image';
 $string['oneslideimagetitle'] = 'Image title';
 $string['oneslidelink'] = 'Link behind Image';
