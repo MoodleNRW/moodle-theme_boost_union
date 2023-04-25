@@ -9,8 +9,6 @@ require_once($CFG->dirroot.'/theme/boost_union/locallib.php');
 // Get theme config.
 $config = get_config('theme_boost_union');
 
-$slidershow = $config->{'slideractivatedsetting'}; // TODO clean up
-
 $generalsettings = new stdClass();
 $generalsettings->show = $config->{'slideractivatedsetting'};
 $generalsettings->showarrownav = $config->{'sliderarrownavsetting'};
@@ -19,6 +17,7 @@ $generalsettings->showcaptions = $config->{'slidercaptionsetting'};
 $generalsettings->showcontent = $config->{'slidercontentsetting'};
 $generalsettings->animation = $config->{'slideranimationsetting'};
 $generalsettings->interval = $config->{'sliderintervalsetting'};
+
 
 $templatecontext['slidergeneralsettings'] = $generalsettings;
 
@@ -34,8 +33,10 @@ for ($i = 1; $i <= THEME_BOOST_UNION_SETTING_SLIDES_COUNT; $i++){
     $slides[$i] = $slider_content;
 
 }
+$templatecontext['slidecontent'] = $slides;
 
 
+/*
 // example input for now
 $slider_content = array (
     array ("Header ONE", "Text ONE"),
@@ -68,5 +69,4 @@ if ($slidershow) {
         $slides[$i] = $sldr;
     }
 }
-
-$templatecontext['slidecontent'] = $slides;
+*/

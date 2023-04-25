@@ -33,24 +33,25 @@
     }
 }}
 
-{{#slidergeneralsettings.show}}
+{{#slidecontent}}
+  <h1>{{#.}}{{content}}{{/.}}</h1>
+{{/slidecontent}}
   <div id="slider">
     
 
     <div id="carouselExampleIndicators" class="carousel slide">
-      <!-- ..... -->
+      <!-- TODO add -->
 
       <div class="carousel-inner">
-        {{#slidecontent}}
-          <div class="carousel-item {{active}}">
-            <img class="d-block w-100" src="https://picsum.photos/1200/600?random={{id}}" alt="First slide">
+        
+          <div class="carousel-item active">
+            <img class="d-block w-100" src="https://picsum.photos/1200/600" alt="First slide">
             <div class="carousel-caption d-none d-md-block">
-              {{#header}}<h5>{{header}}</h5>{{/header}}
-              {{#text}}<p>{{text}}</p>{{/text}}
-              <p>{{id}}</p>
+              <h5>static header</h5>
+              <p>static content</p>
             </div>
           </div>
-        {{/slidecontent}}
+        
         
       </div>
       <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
@@ -65,7 +66,6 @@
 
     
   </div>
-{{/slidergeneralsettings.show}}
 
 
 
