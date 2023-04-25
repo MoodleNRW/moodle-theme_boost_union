@@ -9,25 +9,39 @@ require_once($CFG->dirroot.'/theme/boost_union/locallib.php');
 // Get theme config.
 $config = get_config('theme_boost_union');
 
-// Get relevant config values.
-$slidershow = $config->{'slideractivatedsetting'};
+$slidershow = $config->{'slideractivatedsetting'}; // TODO clean up
+
+$generalsettings = new stdClass();
+$generalsettings->show = $config->{'slideractivatedsetting'};
+$generalsettings->showarrownav = $config->{'sliderarrownavsetting'};
+$generalsettings->showindicatornav = $config->{'sliderindicatornavsetting'};
+$generalsettings->showcaptions = $config->{'slidercaptionsetting'};
+$generalsettings->showcontent = $config->{'slidercontentsetting'};
+$generalsettings->animation = $config->{'slideranimationsetting'};
+$generalsettings->interval = $config->{'sliderintervalsetting'};
+
+$templatecontext['slidergeneralsettings'] = $generalsettings;
+
+$slides = array();
+$slider_content = new stdClass();
+for ($i = 1; $i <= THEME_BOOST_UNION_SETTING_SLIDES_COUNT; $i++){
+    $slider_content->image = $config->{'oneslidepickimage'.$i};
+    $slider_content->imagetitle = $config->{'oneslideimagetitle'.$i};
+    $slider_content->link = $config->{'oneslidelink'.$i};
+    $slider_content->linktitle = $config->{'oneslidelinktitle'.$i};
+    $slider_content->caption = $config->{'oneslidecaption'.$i};
+    $slider_content->content = $config->{'oneslidecontent'.$i};
+    $slides[$i] = $slider_content;
+
+}
 
 
 // example input for now
-
 $slider_content = array (
     array ("Header ONE", "Text ONE"),
     array ("Header TWO", "Text TWO"),
     array ("Header THREE", "Text THREE")
 );
-
-// only show slider if activated in the settings
-
-$generalsettings = new stdClass();
-$generalsettings->show = $config->{'slideractivatedsetting'};
-
-$templatecontext['slidergeneralsettings'] = $generalsettings;
-
 
 if ($slidershow) {
     $j = 3;
