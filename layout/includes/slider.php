@@ -22,16 +22,15 @@ $generalsettings->interval = $config->{'sliderintervalsetting'};
 $templatecontext['slidergeneralsettings'] = $generalsettings;
 
 $slides = array();
-$slider_content = new stdClass();
 for ($i = 1; $i <= THEME_BOOST_UNION_SETTING_SLIDES_COUNT; $i++){
+    $slider_content = new stdClass();
     $slider_content->image = $config->{'oneslidepickimage'.$i};
     $slider_content->imagetitle = $config->{'oneslideimagetitle'.$i};
     $slider_content->link = $config->{'oneslidelink'.$i};
     $slider_content->linktitle = $config->{'oneslidelinktitle'.$i};
     $slider_content->caption = $config->{'oneslidecaption'.$i};
     $slider_content->content = $config->{'oneslidecontent'.$i};
-    $slides[$i] = $slider_content;
-
+    array_push($slides,$slider_content);
 }
 $templatecontext['slidecontent'] = $slides;
 
