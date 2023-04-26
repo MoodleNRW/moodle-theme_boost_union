@@ -35,10 +35,13 @@
 
 {{#slidergeneralsettings.show}}
   <div id="slider">
-    
+    <div class="carousel slide">
 
-    <div id="carouselExampleIndicators" class="carousel slide">
-      <!-- TODO add -->
+    {{#slidergeneralsettings.showindicatornav}}
+    <ol class="carousel-indicators">
+      <li class="indicator-list" data-target="#carouselExampleIndicators" data-slide-to="0"></li>
+    </ol>
+    {{/slidergeneralsettings.showindicatornav}}
 
       <div class="carousel-inner">
         {{#slidecontent}}
@@ -52,6 +55,7 @@
         {{/slidecontent}}
         
       </div>
+      {{#slidergeneralsettings.showarrownav}}
       <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
         <span class="carousel-control-prev-icon" aria-hidden="true"></span>
         <span class="sr-only">Previous</span>
@@ -59,6 +63,7 @@
       <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
         <span class="carousel-control-next-icon" aria-hidden="true"></span>
         <span class="sr-only">Next</span>
+        {{/slidergeneralsettings.showarrownav}}
       </a>
     </div>
 
@@ -69,13 +74,16 @@
 
 {{#js}}
 require(['jquery', 'theme_boost/bootstrap/carousel'], function($) {
-  //Todo das hier kann auch anders gelöst werden und dient nur als Beispiel...
+
   let slider = $('#slider');
-  let carouselitems= document.getElementById("slider").getElementsByClassName('carousel-item');
-    if (carouselitems && carouselitems[0]){
-      console.log(carouselitems[0].className);
-     carouselitems[0].className +=' active';
-    }
+  let carouselitems = document.getElementById("slider").getElementsByClassName('carousel-item');
+  if (carouselitems && carouselitems[0]){
+    carouselitems[0].className += ' active';
+  }
+  let carouselindicators = document.getElementById("slider").getElementsByClassName('indicator-list');
+  if (carouselindicators && carouselindicators[0]) {
+    carouselindicators[0].className += ' active';
+  }
 
   $('.carousel').carousel({
     ride: true,
