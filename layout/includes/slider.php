@@ -15,7 +15,15 @@ $generalsettings->showarrownav = $config->{'sliderarrownavsetting'};
 $generalsettings->showindicatornav = $config->{'sliderindicatornavsetting'};
 $generalsettings->showcaption = $config->{'slidercaptionsetting'};
 $generalsettings->showcontent = $config->{'slidercontentsetting'};
-$generalsettings->animation = $config->{'slideranimationsetting'};
+
+switch ($config->{'slideranimationsetting'}) {
+    case 0:
+        $generalsettings->animation = "";
+    case 1:
+        $generalsettings->animation = "fade";
+    case 2:
+        $generalsettings->animation = "slide";
+}
 $generalsettings->interval = $config->{'sliderintervalsetting'};
 
 
