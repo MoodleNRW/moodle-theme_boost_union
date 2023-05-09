@@ -25,14 +25,16 @@ switch ($config->{'slideranimationsetting'}) {
         $generalsettings->animation = "slide";
 }
 $generalsettings->interval = $config->{'sliderintervalsetting'};
-
-
 $templatecontext['slidergeneralsettings'] = $generalsettings;
+
 
 $slides = array();
 for ($i = 1; $i <= THEME_BOOST_UNION_SETTING_SLIDES_COUNT; $i++){
+    $slider_image = theme_boost_union_get_urlofsliderimage($i);
+
     $slider_content = new stdClass();
-    $slider_content->image = $config->{'oneslidepickimage'.$i};
+    //$slider_content->image = $config->{'oneslidepickimage'.$i};
+    $slider_content->image = $slider_image;
     $slider_content->imagetitle = $config->{'oneslideimagetitle'.$i};
     $slider_content->link = $config->{'oneslidelink'.$i};
     $slider_content->linktitle = $config->{'oneslidelinktitle'.$i};
@@ -42,38 +44,3 @@ for ($i = 1; $i <= THEME_BOOST_UNION_SETTING_SLIDES_COUNT; $i++){
 }
 $templatecontext['slidecontent'] = $slides;
 
-
-/*
-// example input for now
-$slider_content = array (
-    array ("Header ONE", "Text ONE"),
-    array ("Header TWO", "Text TWO"),
-    array ("Header THREE", "Text THREE")
-);
-
-if ($slidershow) {
-    $j = 3;
-    for ($i = 0; $i < $j; $i++) {
-        $sldr = new stdClass();
-        $sldr->show = ($slidershow)? true : false;
-        $sldr->id = 1;
-        $sldr->header = $slider_content[$i][0];
-        $sldr->text = $slider_content[$i][1];
-        $sldr->active = ($i == 0)? "active" : "";
-        
-        $slides[$i] = $sldr;
-    }
-} else {
-    $j = 1;
-    for ($i = 0; $i < $j; $i++) {
-        $sldr = new stdClass();
-        $sldr->show = false;
-        $sldr->id = 0;
-        $sldr->header = "";
-        $sldr->text = "";
-        $sldr->active = "";
-        
-        $slides[$i] = $sldr;
-    }
-}
-*/
