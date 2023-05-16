@@ -50,9 +50,9 @@
         {{#slidecontent}}
           <div class="carousel-item">
           
-            {{#link}}<a href="{{link}}" title="{{linktitle}}"> {{/link}}
-            {{#image}}<img class="d-block w-100" src="{{image}}" alt="{{imagetitle}}">{{/image}}
-
+            <a href="{{link}}" title="{{linktitle}}">
+              {{#image}}<img class="d-block w-100" src="{{image}}" alt="{{imagetitle}}">{{/image}}
+            </a>
 
             <div class="carousel-caption d-none d-md-block">
               {{#slidergeneralsettings.showcaption}}<h5>{{caption}}</h5>{{/slidergeneralsettings.showcaption}}
