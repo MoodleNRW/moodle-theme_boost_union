@@ -40,8 +40,9 @@
 
     {{#slidergeneralsettings.showindicatornav}}
     <ol class="carousel-indicators">
-       <!--add loop with id (data slide to)-->
-      <li class="indicator-list" data-target="#carouselExampleIndicators" data-slide-to="0"></li>
+       {{#slidecontent}}
+      <li class="indicator-list" data-target="#carouselExampleIndicators" data-slide-to="{{count}}"></li>
+      {{/slidecontent}}
     </ol>
     {{/slidergeneralsettings.showindicatornav}}
 
@@ -96,7 +97,6 @@ require(['jquery', 'theme_boost/bootstrap/carousel'], function($) {
 
   $('.carousel').carousel({
     ride: true,
-    interval: 50000
   });
 });
 
