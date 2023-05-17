@@ -1722,6 +1722,7 @@ if ($hassiteconfig || has_capability('theme/boost_union:configure', context_syst
             $title = get_string('oneslidepickimage', 'theme_boost_union', array('no' => $i), true);
             $setting = new admin_setting_configstoredfile($name, $title, "", "sliderbackgroundimage".$i, 0,
                     array('maxfiles' => 1, 'accepted_types' => 'web_image'));
+            $setting->set_updatedcallback('theme_reset_all_caches');
             $tab->add($setting);
 
             // Setting: Set title for picture.
