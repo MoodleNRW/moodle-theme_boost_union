@@ -41,7 +41,7 @@
     {{#slidergeneralsettings.showindicatornav}}
     <ol class="carousel-indicators">
        {{#slidecontent}}
-      <li class="indicator-list" data-target="#carouselExampleIndicators" data-slide-to="{{count}}"></li>
+      <li class="indicator-list" data-target="#slider" data-slide-to="{{count}}"></li>
       {{/slidecontent}}
     </ol>
     {{/slidergeneralsettings.showindicatornav}}
@@ -64,11 +64,11 @@
         
       </div>
       {{#slidergeneralsettings.showarrownav}}
-      <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
+      <a class="carousel-control-prev" href="#slider" role="button" data-slide="prev">
         <span class="carousel-control-prev-icon" aria-hidden="true"></span>
         <span class="sr-only">prev</span>
       </a>
-      <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
+      <a class="carousel-control-next" href="#slider" role="button" data-slide="next">
         <span class="carousel-control-next-icon" aria-hidden="true"></span>
         <span class="sr-only">next</span>
       </a>
@@ -89,11 +89,11 @@ require(['jquery', 'theme_boost/bootstrap/carousel'], function($) {
   if (carouselitems && carouselitems[0]){
     carouselitems[0].className += ' active';
   }
-  /*
+  
   let carouselindicators = document.getElementById("slider").getElementsByClassName('indicator-list');
   if (carouselindicators && carouselindicators[0]) {
     carouselindicators[0].className += ' active';
-  }*/
+  }
 
   $('.carousel').carousel({
     ride: true,

@@ -33,7 +33,7 @@ for ($i = 1; $i <= THEME_BOOST_UNION_SETTING_SLIDES_COUNT; $i++){
     $slider_image = theme_boost_union_get_urlofsliderimage($i);
 
     $slider_content = new stdClass();
-    $slider_content->count = $i;
+    $slider_content->count = $i-1;
     $slider_content->image = $slider_image;
     $slider_content->imagetitle = $config->{'oneslideimagetitle'.$i};
     $slider_content->link = $config->{'oneslidelink'.$i};
