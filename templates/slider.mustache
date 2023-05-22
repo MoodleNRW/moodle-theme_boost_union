@@ -34,63 +34,59 @@
 }}
 
 {{#slidergeneralsettings.show}}
-  <div id="slider">
-    <div class="carousel {{slidergeneralsettings.animation}}" data-interval="{{slidergeneralsettings.interval}}">
-
+<div class="boost-union-frontpage-slider">
+  <div id="slider" class="carousel {{slidergeneralsettings.animation}}" data-interval="{{slidergeneralsettings.interval}}">
 
     {{#slidergeneralsettings.showindicatornav}}
     <ol class="carousel-indicators">
        {{#slidecontent}}
-      <li class="indicator-list" data-target="#slider" data-slide-to="{{count}}"></li>
+      <li data-target="#slider" data-slide-to="{{count}}"></li>
       {{/slidecontent}}
     </ol>
     {{/slidergeneralsettings.showindicatornav}}
 
-      <div class="carousel-inner">
-      
-        {{#slidecontent}}
-          <div class="carousel-item">
-          
-            <a href="{{link}}" title="{{linktitle}}">
-              {{#image}}<img class="d-block w-100" src="{{image}}" alt="{{imagetitle}}">{{/image}}
-            </a>
-
-            <div class="carousel-caption d-none d-md-block">
-              {{#slidergeneralsettings.showcaption}}<h5>{{caption}}</h5>{{/slidergeneralsettings.showcaption}}
-              {{#slidergeneralsettings.showcontent}}<p>{{content}}</p>{{/slidergeneralsettings.showcontent}}
-            </div>
-          </div>
-        {{/slidecontent}}
+    <div class="carousel-inner">
+    
+      {{#slidecontent}}
+        <div class="carousel-item">
         
-      </div>
-      {{#slidergeneralsettings.showarrownav}}
-      <a class="carousel-control-prev" href="#slider" role="button" data-slide="prev">
-        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-        <span class="sr-only">prev</span>
-      </a>
-      <a class="carousel-control-next" href="#slider" role="button" data-slide="next">
-        <span class="carousel-control-next-icon" aria-hidden="true"></span>
-        <span class="sr-only">next</span>
-      </a>
-      {{/slidergeneralsettings.showarrownav}}
-      
+          <a href="{{link}}" title="{{linktitle}}">
+            {{#image}}<img class="d-block w-100" src="{{image}}" alt="{{imagetitle}}">{{/image}}
+          </a>
+
+          <div class="carousel-caption d-none d-md-block">
+            {{#slidergeneralsettings.showcaption}}<h5>{{caption}}</h5>{{/slidergeneralsettings.showcaption}}
+            {{#slidergeneralsettings.showcontent}}<p>{{content}}</p>{{/slidergeneralsettings.showcontent}}
+          </div>
+        </div>
+      {{/slidecontent}}
     </div>
 
-    
-  </div> 
+    {{#slidergeneralsettings.showarrownav}}
+    <a class="carousel-control-prev" href="#slider" role="button" data-slide="prev">
+      <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+      <span class="sr-only">prev</span>
+    </a>
+    <a class="carousel-control-next" href="#slider" role="button" data-slide="next">
+      <span class="carousel-control-next-icon" aria-hidden="true"></span>
+      <span class="sr-only">next</span>
+    </a>
+    {{/slidergeneralsettings.showarrownav}}
+      
+  </div>
+</div>
 {{/slidergeneralsettings.show}}
 
 
 {{#js}}
 require(['jquery', 'theme_boost/bootstrap/carousel'], function($) {
 
-  let slider = $('#slider');
   let carouselitems = document.getElementById("slider").getElementsByClassName('carousel-item');
   if (carouselitems && carouselitems[0]){
     carouselitems[0].className += ' active';
   }
   
-  let carouselindicators = document.getElementById("slider").getElementsByClassName('indicator-list');
+  let carouselindicators = document.getElementById("slider").getElementsByTagName('li');
   if (carouselindicators && carouselindicators[0]) {
     carouselindicators[0].className += ' active';
   }
