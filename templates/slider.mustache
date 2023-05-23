@@ -80,20 +80,21 @@
 
 {{#js}}
 require(['jquery', 'theme_boost/bootstrap/carousel'], function($) {
+  if (document.getElementById("slider")) {
+    let carouselitems = document.getElementById("slider").getElementsByClassName('carousel-item');
+    if (carouselitems && carouselitems[0]){
+      carouselitems[0].className += ' active';
+    }
+    
+    let carouselindicators = document.getElementById("slider").getElementsByTagName('li');
+    if (carouselindicators && carouselindicators[0]) {
+      carouselindicators[0].className += ' active';
+    }
 
-  let carouselitems = document.getElementById("slider").getElementsByClassName('carousel-item');
-  if (carouselitems && carouselitems[0]){
-    carouselitems[0].className += ' active';
+    $('.carousel').carousel({
+      ride: true,
+    });
   }
-  
-  let carouselindicators = document.getElementById("slider").getElementsByTagName('li');
-  if (carouselindicators && carouselindicators[0]) {
-    carouselindicators[0].className += ' active';
-  }
-
-  $('.carousel').carousel({
-    ride: true,
-  });
 });
 
 {{/js}}

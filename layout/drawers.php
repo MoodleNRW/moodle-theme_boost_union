@@ -188,7 +188,9 @@ if ($PAGE->pagelayout == 'frontpage') {
     require_once(__DIR__ . '/includes/advertisementtiles.php');
 }
 
-require_once(__DIR__ . '/includes/slider.php');
+if ($PAGE->pagelayout == 'frontpage') {
+    require_once(__DIR__ . '/includes/slider.php');
+}
 
 // Render drawers.mustache from boost_union.
 echo $OUTPUT->render_from_template('theme_boost_union/drawers', $templatecontext);
