@@ -1727,31 +1727,31 @@ if ($hassiteconfig || has_capability('theme/boost_union:configure', context_syst
 
             // Setting: Set title for picture.
             $name = 'theme_boost_union/oneslideimagetitle'.$i;
-            $title = get_string('oneslideimagetitle', 'theme_boost_union', null, true);
+            $title = get_string('oneslideimagetitle', 'theme_boost_union', array('no' => $i), null, true);
             $setting = new admin_setting_configtext($name, $title, "", "");
             $tab->add($setting);
 
             // Setting: Set link for slide.
             $name = 'theme_boost_union/oneslidelink'.$i;
-            $title = get_string('oneslidelink', 'theme_boost_union', null, true);
+            $title = get_string('oneslidelink', 'theme_boost_union', array('no' => $i), null, true);
             $setting = new admin_setting_configtext($name, $title, "", "");
             $tab->add($setting);
 
             // Setting: Set title for link.
             $name = 'theme_boost_union/oneslidelinktitle'.$i;
-            $title = get_string('oneslidelinktitle', 'theme_boost_union', null, true);
+            $title = get_string('oneslidelinktitle', 'theme_boost_union', array('no' => $i), null, true);
             $setting = new admin_setting_configtext($name, $title, "", "");
             $tab->add($setting);
 
             // Setting: Set Caption text.
             $name = 'theme_boost_union/oneslidecaption'.$i;
-            $title = get_string('oneslidecaption', 'theme_boost_union', null, true);
+            $title = get_string('oneslidecaption', 'theme_boost_union', array('no' => $i), null, true);
             $setting = new admin_setting_configtext($name, $title, "", "");
             $tab->add($setting);
             
             // Setting: Set Content text.
             $name = 'theme_boost_union/oneslidecontent'.$i;
-            $title = get_string('oneslidecontent', 'theme_boost_union', null, true);
+            $title = get_string('oneslidecontent', 'theme_boost_union', array('no' => $i), null, true);
             $setting = new admin_setting_configtext($name, $title, "", "");
             $tab->add($setting);
             
