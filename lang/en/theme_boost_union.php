@@ -657,12 +657,12 @@ $string['sliderintervalsetting'] = 'Interval Speed';
 $string['sliderintervalsetting_desc'] = 'Duration before slide changes';
 // ... Section: One Slide.
 $string['oneslidetab'] = 'Slide {$a->no}';
-$string['oneslidepickimage'] = 'Choose a background image';
-$string['oneslideimagetitle'] = 'Image title';
-$string['oneslidelink'] = 'Link behind Image';
-$string['oneslidelinktitle'] = 'Link title';
-$string['oneslidecaption'] = 'Write a Caption Text';
-$string['oneslidecontent'] = 'Write a Content Text';
+$string['oneslidepickimage'] = 'Slide {$a->no} Image';
+$string['oneslideimagetitle'] = 'Slide {$a->no} Image title';
+$string['oneslidelink'] = 'Slide {$a->no} Link behind Image';
+$string['oneslidelinktitle'] = 'Slide {$a->no} Link title';
+$string['oneslidecaption'] = 'Slide {$a->no} Write a Caption Text';
+$string['oneslidecontent'] = 'Slide {$a->no} Write a Content Text';
 
 // ... Section: Site home right-hand block drawer behaviour.
 $string['sitehomerighthandblockdrawerbehaviour'] = 'Site home right-hand block drawer';
