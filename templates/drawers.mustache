@@ -168,7 +168,6 @@
                         </button>
                     </div>
                 {{/courseindex}}
-                {{> theme_boost_union/slider }}
                 {{#hasblocks}}
                     <div class="drawer-toggler drawer-right-toggle ml-auto d-print-none">
                         <button
@@ -203,32 +202,40 @@
             {{/regions.contentupper.hasblocks}}
             <div id="page-content" class="pb-3 d-print-block">
                 <div id="region-main-box">
-                    {{#advtilespositionbefore}}
-                        {{> theme_boost_union/advertisementtiles }}
-                    {{/advtilespositionbefore}}
-                    {{#hasregionmainsettingsmenu}}
-                    <div id="region-main-settings-menu" class="d-print-none">
-                        <div> {{{ regionmainsettingsmenu }}} </div>
-                    </div>
-                    {{/hasregionmainsettingsmenu}}
-                    <section id="region-main" aria-label="{{#str}}content{{/str}}">
+                    {{#sliderpositionbefore}}
+                    {{> theme_boost_union/slider }}
+                    {{/sliderpositionbefore}}
 
+                    {{^sliderpositionreplace}}
+                        {{#advtilespositionbefore}}
+                            {{> theme_boost_union/advertisementtiles }}
+                        {{/advtilespositionbefore}}
                         {{#hasregionmainsettingsmenu}}
-                            <div class="region_main_settings_menu_proxy"></div>
+                        <div id="region-main-settings-menu" class="d-print-none">
+                            <div> {{{ regionmainsettingsmenu }}} </div>
+                        </div>
                         {{/hasregionmainsettingsmenu}}
-                        {{{ output.course_content_header }}}
-                        {{#headercontent}}
-                            {{> core/activity_header }}
-                        {{/headercontent}}
-                        {{#overflow}}
-                            <div class="container-fluid tertiary-navigation">
-                                <div class="navitem">
-                                    {{> core/url_select}}
+                        <section id="region-main" aria-label="{{#str}}content{{/str}}">
+
+                            {{#hasregionmainsettingsmenu}}
+                                <div class="region_main_settings_menu_proxy"></div>
+                            {{/hasregionmainsettingsmenu}}
+                            {{{ output.course_content_header }}}
+                            {{#headercontent}}
+                                {{> core/activity_header }}
+                            {{/headercontent}}
+                            {{#overflow}}
+                                <div class="container-fluid tertiary-navigation">
+                                    <div class="navitem">
+                                        {{> core/url_select}}
+                                    </div>
                                 </div>
-                            </div>
-                        {{/overflow}}
+                            {{/overflow}}
+                        
                         {{{courserelatedhints}}}
+                        
                         {{{ output.main_content }}}
+                        {{/sliderpositionreplace}}
                         {{{ output.activity_navigation }}}
                         {{{ output.course_content_footer }}}
 
@@ -236,6 +243,10 @@
                     {{#advtilespositionafter}}
                         {{> theme_boost_union/advertisementtiles }}
                     {{/advtilespositionafter}}
+                    {{#sliderpositionafter}}
+                    {{> theme_boost_union/slider }}
+                    {{/sliderpositionafter}}
+                    
                 </div>
             </div>
             {{#regions.contentlower.hasblocks}}
