@@ -32,16 +32,19 @@ if ($generalsettings->show) {
     $slides = array();
     for ($i = 1; $i <= THEME_BOOST_UNION_SETTING_SLIDES_COUNT; $i++){
         $slider_image = theme_boost_union_get_urlofsliderimage($i);
-    
-        $slider_content = new stdClass();
-        $slider_content->count = $i-1;
-        $slider_content->image = $slider_image;
-        $slider_content->imagetitle = $config->{'oneslideimagetitle'.$i};
-        $slider_content->link = $config->{'oneslidelink'.$i};
-        $slider_content->linktitle = $config->{'oneslidelinktitle'.$i};
-        $slider_content->caption = $config->{'oneslidecaption'.$i};
-        $slider_content->content = $config->{'oneslidecontent'.$i};
-        array_push($slides,$slider_content);
+        
+        if ($slider_image) {
+            $slider_content = new stdClass();
+            $slider_content->count = count($slides);
+            $slider_content->image = $slider_image;
+            $slider_content->imagetitle = $config->{'oneslideimagetitle'.$i};
+            $slider_content->link = $config->{'oneslidelink'.$i};
+            $slider_content->linktitle = $config->{'oneslidelinktitle'.$i};
+            $slider_content->caption = $config->{'oneslidecaption'.$i};
+            $slider_content->content = $config->{'oneslidecontent'.$i};
+            array_push($slides,$slider_content);
+        }
+        
     }
     $templatecontext['slidecontent'] = $slides;
 }
