@@ -657,7 +657,7 @@ $string['slidercaptionsetting'] = 'Enable optional caption texts';
 $string['slidercontentsetting'] = 'Enable optional content texts';
 $string['slideranimationsetting'] = 'Animation Type';
 $string['sliderintervalsetting'] = 'Interval Speed';
-$string['sliderintervalsetting_desc'] = 'Duration before slide changes';
+$string['sliderintervalsetting_desc'] = 'Duration before slide changes in Miliseconds. Minimum = 1.000 (one second), Maximum = 10000 (10 seconds)';
 // ... Section: One Slide.
 $string['oneslidetab'] = 'Slide {$a->no}';
 $string['oneslidepickimage'] = 'Slide {$a->no} Image';

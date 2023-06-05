@@ -31,13 +31,20 @@ $generalsettings->showcontent = $config->{'slidercontentsetting'};
 if ($generalsettings->show) {
     switch ($config->{'slideranimationsetting'}) {
         case 0:
-            $generalsettings->animation = "";
-        case 1:
             $generalsettings->animation = "fade";
-        case 2:
+        case 1:
             $generalsettings->animation = "slide";
+        case 2:
+            $generalsettings->animation = "";
     }
-    $generalsettings->interval = $config->{'sliderintervalsetting'};
+    if ($config->{'sliderintervalsetting'} < 1000) {
+        $generalsettings->interval = 1000;
+    } elseif ($config->{'sliderintervalsetting'} > 10000) {
+        $generalsettings->interval = 10000;
+    } else {
+        $generalsettings->interval = $config->{'sliderintervalsetting'};
+    }
+    
     $templatecontext['slidergeneralsettings'] = $generalsettings;
     
     

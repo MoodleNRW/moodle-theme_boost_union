@@ -1717,7 +1717,7 @@ if ($hassiteconfig || has_capability('theme/boost_union:configure', context_syst
         //Setting: Set interval speed.
         $title = get_string('sliderintervalsetting', 'theme_boost_union', null, true);
         $description = get_string('sliderintervalsetting_desc', 'theme_boost_union', null, true);
-        $setting = new admin_setting_configduration("theme_boost_union/sliderintervalsetting", $title, $description, 5, 1);
+        $setting = new admin_setting_configtext("theme_boost_union/sliderintervalsetting", $title, $description, 5000, PARAM_INT, 6);
         $tab->add($setting);
 
         // Create a hardcoded amount of slides.
