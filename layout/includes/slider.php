@@ -31,9 +31,11 @@ $generalsettings->showcontent = $config->{'slidercontentsetting'};
 if ($generalsettings->show) {
     switch ($config->{'slideranimationsetting'}) {
         case 0:
-            $generalsettings->animation = "fade";
-        case 1:
             $generalsettings->animation = "slide";
+            break;
+        case 1:
+            $generalsettings->animation = "slide carousel-fade";
+            break;
         case 2:
             $generalsettings->animation = "";
     }

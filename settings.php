@@ -1711,7 +1711,7 @@ if ($hassiteconfig || has_capability('theme/boost_union:configure', context_syst
 
         // Setting: Select a slide-animation.
         $title = get_string('slideranimationsetting', 'theme_boost_union', null, true);
-        $setting = new admin_setting_configselect("theme_boost_union/slideranimationsetting", $title, "", 0, array(0=>'none',1=>'fade',2=>'slide'));
+        $setting = new admin_setting_configselect("theme_boost_union/slideranimationsetting", $title, "", 0, array(0=>'slide',1=>'fade',2=>'none'));
         $tab->add($setting);
         
         //Setting: Set interval speed.
