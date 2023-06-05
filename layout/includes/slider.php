@@ -15,19 +15,12 @@ $generalsettings->show = $config->{'slideractivatedsetting'};
 // Getting and setting the Slider position on the frontpage.
 switch ($config->{'sliderpositiononfrontpage'}) {
     case THEME_BOOST_UNION_SETTING_SLIDER_FRONTPAGEPOSITION_BEFORE:
-        $templatecontext['sliderpositionreplace'] = false;
         $templatecontext['sliderpositionbefore'] = true;
         $templatecontext['sliderpositionafter'] = false;
         break;
     case THEME_BOOST_UNION_SETTING_SLIDER_FRONTPAGEPOSITION_AFTER:
-        $templatecontext['sliderpositionreplace'] = false;
         $templatecontext['sliderpositionbefore'] = false;
         $templatecontext['sliderpositionafter'] = true;
-        break;
-    case THEME_BOOST_UNION_SETTING_SLIDER_FRONTPAGEPOSITION_INSTEAD:
-        $templatecontext['sliderpositionreplace'] = true;
-        $templatecontext['sliderpositionbefore'] = true;
-        $templatecontext['sliderpositionafter'] = false;
 }
 
 $generalsettings->showarrownav = $config->{'sliderarrownavsetting'};

@@ -1682,13 +1682,10 @@ if ($hassiteconfig || has_capability('theme/boost_union:configure', context_syst
                         get_string('sliderfrontpagepositionsetting_before', 'theme_boost_union'),
                 THEME_BOOST_UNION_SETTING_SLIDER_FRONTPAGEPOSITION_AFTER =>
                         get_string('sliderfrontpagepositionsetting_after', 'theme_boost_union'),
-                THEME_BOOST_UNION_SETTING_SLIDER_FRONTPAGEPOSITION_INSTEAD =>
-                        get_string('sliderfrontpagepositionsetting_instead', 'theme_boost_union'),
         );
         $name = 'theme_boost_union/sliderpositiononfrontpage';
         $title = get_string('sliderpositiononfrontpage', 'theme_boost_union', null, true);
-        $description = get_string('sliderpositiononfrontpage_desc', 'theme_boost_union', null, true);
-        $setting = new admin_setting_configselect($name, $title, $description, THEME_BOOST_UNION_SETTING_SLIDER_FRONTPAGEPOSITION_BEFORE, $choices);
+        $setting = new admin_setting_configselect($name, $title, "", THEME_BOOST_UNION_SETTING_SLIDER_FRONTPAGEPOSITION_BEFORE, $choices);
         $tab->add($setting);
 
         // Setting: Toggle whether Slider Arrow Controls are shown.

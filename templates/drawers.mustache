@@ -206,42 +206,39 @@
                     {{> theme_boost_union/slider }}
                     {{/sliderpositionbefore}}
 
-                    {{^sliderpositionreplace}}
-                        {{#advtilespositionbefore}}
-                            {{> theme_boost_union/advertisementtiles }}
-                        {{/advtilespositionbefore}}
-                        {{#hasregionmainsettingsmenu}}
-                        <div id="region-main-settings-menu" class="d-print-none">
-                            <div> {{{ regionmainsettingsmenu }}} </div>
-                        </div>
-                        {{/hasregionmainsettingsmenu}}
-                        <section id="region-main" aria-label="{{#str}}content{{/str}}">
+                    {{#advtilespositionbefore}}
+                        {{> theme_boost_union/advertisementtiles }}
+                    {{/advtilespositionbefore}}
+                    {{#hasregionmainsettingsmenu}}
+                    <div id="region-main-settings-menu" class="d-print-none">
+                        <div> {{{ regionmainsettingsmenu }}} </div>
+                    </div>
+                    {{/hasregionmainsettingsmenu}}
+                    <section id="region-main" aria-label="{{#str}}content{{/str}}">
 
-                            {{#hasregionmainsettingsmenu}}
-                                <div class="region_main_settings_menu_proxy"></div>
-                            {{/hasregionmainsettingsmenu}}
-                            {{{ output.course_content_header }}}
-                            {{#headercontent}}
-                                {{> core/activity_header }}
-                            {{/headercontent}}
-                            {{#overflow}}
-                                <div class="container-fluid tertiary-navigation">
-                                    <div class="navitem">
-                                        {{> core/url_select}}
-                                    </div>
+                        {{#hasregionmainsettingsmenu}}
+                            <div class="region_main_settings_menu_proxy"></div>
+                        {{/hasregionmainsettingsmenu}}
+                        {{{ output.course_content_header }}}
+                        {{#headercontent}}
+                            {{> core/activity_header }}
+                        {{/headercontent}}
+                        {{#overflow}}
+                            <div class="container-fluid tertiary-navigation">
+                                <div class="navitem">
+                                    {{> core/url_select}}
                                 </div>
-                            {{/overflow}}
+                            </div>
+                        {{/overflow}}
                         
                         {{{courserelatedhints}}}
-                        
                         {{{ output.main_content }}}
-                        {{/sliderpositionreplace}}
                         {{{ output.activity_navigation }}}
                         {{{ output.course_content_footer }}}
 
                     </section>
                     {{#advtilespositionafter}}
-                        {{> theme_boost_union/advertisementtiles }}
+                    {{> theme_boost_union/advertisementtiles }}
                     {{/advtilespositionafter}}
                     {{#sliderpositionafter}}
                     {{> theme_boost_union/slider }}
