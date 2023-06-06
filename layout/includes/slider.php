@@ -53,8 +53,7 @@ if ($generalsettings->show) {
     $slides = array();
     for ($i = 1; $i <= THEME_BOOST_UNION_SETTING_SLIDES_COUNT; $i++){
         $slider_image = theme_boost_union_get_urlofsliderimage($i);
-        
-        if ($slider_image) {
+        if ($slider_image && $config->{'slide'.$i.'enabled'} == THEME_BOOST_UNION_SETTING_SELECT_YES) {
             $slider_content = new stdClass();
             $slider_content->count = count($slides);
             $slider_content->image = $slider_image;

@@ -1728,44 +1728,65 @@ if ($hassiteconfig || has_capability('theme/boost_union:configure', context_syst
             $title = get_string('oneslidetab', 'theme_boost_union', array('no' => $i), true);
             $setting = new admin_setting_heading($name, $title, null);
             $tab->add($setting);
+        
+            // Setting: Slide enabled.
+            $name = 'theme_boost_union/slide'.$i.'enabled';
+            $title = get_string('oneslideenabled', 'theme_boost_union', array('no' => $i), true);
+            $description = get_string('oneslideenabled_desc', 'theme_boost_union', array('no' => $i), true);
+            $setting = new admin_setting_configselect($name, $title, $description, THEME_BOOST_UNION_SETTING_SELECT_NO,
+                    $yesnooption);
+            $tab->add($setting);
 
             // Setting: Select picture.
             $name = 'theme_boost_union/oneslidepickimage'.$i;
             $title = get_string('oneslidepickimage', 'theme_boost_union', array('no' => $i), true);
-            $setting = new admin_setting_configstoredfile($name, $title, "", "sliderbackgroundimage".$i, 0,
+            $description = get_string('oneslidepickimage_desc', 'theme_boost_union');
+            $setting = new admin_setting_configstoredfile($name, $title, $description, "sliderbackgroundimage".$i, 0,
                     array('maxfiles' => 1, 'accepted_types' => 'web_image'));
             $setting->set_updatedcallback('theme_reset_all_caches');
             $tab->add($setting);
+            $page->hide_if('theme_boost_union/oneslidepickimage'.$i, 'theme_boost_union/slide'.$i.'enabled', 'neq',
+            THEME_BOOST_UNION_SETTING_SELECT_YES);
 
             // Setting: Set title for picture.
             $name = 'theme_boost_union/oneslideimagetitle'.$i;
             $title = get_string('oneslideimagetitle', 'theme_boost_union', array('no' => $i), null, true);
             $setting = new admin_setting_configtext($name, $title, "", "");
             $tab->add($setting);
+            $page->hide_if('theme_boost_union/oneslideimagetitle'.$i, 'theme_boost_union/slide'.$i.'enabled', 'neq',
+            THEME_BOOST_UNION_SETTING_SELECT_YES);
 
             // Setting: Set link for slide.
             $name = 'theme_boost_union/oneslidelink'.$i;
             $title = get_string('oneslidelink', 'theme_boost_union', array('no' => $i), null, true);
             $setting = new admin_setting_configtext($name, $title, "", "");
             $tab->add($setting);
+            $page->hide_if('theme_boost_union/oneslidelink'.$i, 'theme_boost_union/slide'.$i.'enabled', 'neq',
+            THEME_BOOST_UNION_SETTING_SELECT_YES);
 
             // Setting: Set title for link.
             $name = 'theme_boost_union/oneslidelinktitle'.$i;
             $title = get_string('oneslidelinktitle', 'theme_boost_union', array('no' => $i), null, true);
             $setting = new admin_setting_configtext($name, $title, "", "");
             $tab->add($setting);
+            $page->hide_if('theme_boost_union/oneslidelinktitle'.$i, 'theme_boost_union/slide'.$i.'enabled', 'neq',
+            THEME_BOOST_UNION_SETTING_SELECT_YES);
 
             // Setting: Set Caption text.
             $name = 'theme_boost_union/oneslidecaption'.$i;
             $title = get_string('oneslidecaption', 'theme_boost_union', array('no' => $i), null, true);
             $setting = new admin_setting_configtext($name, $title, "", "");
             $tab->add($setting);
+            $page->hide_if('theme_boost_union/oneslidecaption'.$i, 'theme_boost_union/slide'.$i.'enabled', 'neq',
+            THEME_BOOST_UNION_SETTING_SELECT_YES);
             
             // Setting: Set Content text.
             $name = 'theme_boost_union/oneslidecontent'.$i;
             $title = get_string('oneslidecontent', 'theme_boost_union', array('no' => $i), null, true);
             $setting = new admin_setting_configtext($name, $title, "", "");
             $tab->add($setting);
+            $page->hide_if('theme_boost_union/oneslidecontent'.$i, 'theme_boost_union/slide'.$i.'enabled', 'neq',
+            THEME_BOOST_UNION_SETTING_SELECT_YES);
             
         }
 

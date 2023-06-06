@@ -660,7 +660,10 @@ $string['sliderintervalsetting'] = 'Interval Speed';
 $string['sliderintervalsetting_desc'] = 'Duration before slide changes in Miliseconds. Minimum = 1000 (one second), Maximum = 10000 (10 seconds)';
 // ... Section: One Slide.
 $string['oneslidetab'] = 'Slide {$a->no}';
+$string['oneslideenabled'] = 'Enable Slide {$a->no}';
+$string['oneslideenabled_desc'] = 'Enable, to expand slide configuration. A picture is required for the slide to be included.';
 $string['oneslidepickimage'] = 'Slide {$a->no} Image';
+$string['oneslidepickimage_desc'] = 'It is required to set a picture!';
 $string['oneslideimagetitle'] = 'Slide {$a->no} Image title';
 $string['oneslidelink'] = 'Slide {$a->no} Link behind Image';
 $string['oneslidelinktitle'] = 'Slide {$a->no} Link title';
