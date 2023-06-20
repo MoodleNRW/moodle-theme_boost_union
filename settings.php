@@ -213,6 +213,20 @@ if ($hassiteconfig || has_capability('theme/boost_union:configure', context_syst
         $setting->set_updatedcallback('theme_reset_all_caches');
         $tab->add($setting);
 
+        // Create page scrollbar heading.
+        $name = 'theme_boost_union/pagescrollbarheading';
+        $title = get_string('pagescrollbarheading', 'theme_boost_union', null, true);
+        $setting = new admin_setting_heading($name, $title, null);
+        $tab->add($setting);
+
+        // Setting: Page scrollbar width.
+        $name = 'theme_boost_union/pagescrollbardefaultsetting';
+        $title = get_string('pagescrollbardefaultsetting', 'theme_boost_union', null, true);
+        $description = get_string('pagescrollbardefaultsetting_desc', 'theme_boost_union', null, true);
+        $setting = new admin_setting_configselect($name, $title, $description, THEME_BOOST_UNION_SETTING_SELECT_NO, $yesnooption);
+        $setting->set_updatedcallback('theme_reset_all_caches');
+        $tab->add($setting);
+
         // Add tab to settings page.
         $page->add($tab);
 

@@ -28,6 +28,7 @@
     * courseindexopen - true if the nav drawer should be open on page load
     * regionmainsettingsmenu - HTML for the region main settings menu
     * hasregionmainsettingsmenu - There is a region main settings menu on this page.
+    * defaultscrollbar - true if the page should use the default browser scrollbar
 
     Example context (json):
     {
@@ -46,7 +47,8 @@
         "blockdraweropen": true,
         "regionmainsettingsmenu": "",
         "hasregionmainsettingsmenu": false,
-        "addblockbutton": ""
+        "addblockbutton": "",
+        "defaultscrollbar": false
     }
 }}
 {{!
@@ -119,7 +121,7 @@
         {{/regions.offcanvas.hasblocks}}
     {{/userisediting}}
 
-    <div id="page" data-region="mainpage" data-usertour="scroller" class="drawers {{#courseindexopen}}show-drawer-left{{/courseindexopen}} {{#blockdraweropen}}show-drawer-right{{/blockdraweropen}} drag-container">
+    <div id="page" data-region="mainpage" data-usertour="scroller" class="drawers {{#courseindexopen}}show-drawer-left{{/courseindexopen}} {{#blockdraweropen}}show-drawer-right{{/blockdraweropen}} {{#defaultscrollbar}}default-scrollbar{{/defaultscrollbar}} drag-container">
         {{#userisediting}}
             <div id="theme-block-region-offcanvas-editing" class="collapse">
                 <div id="theme-block-region-offcanvas-editing-inner">
