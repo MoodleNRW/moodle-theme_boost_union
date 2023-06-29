@@ -26,3 +26,17 @@ Feature: Configuring the theme_boost_union plugin for the "Page" tab on the "Loo
   # And as this feature file for this tab can't be empty, we just add a dummy step.
   Scenario: Setting: Medium content max width - Overwrite the medium content max width setting
     When I log in as "admin"
+
+  Scenario: Setting: Default page scrollbar - Use the default scrollbar
+    Given the following config values are set as admin:
+      | config                      | value | plugin            |
+      | pagescrollbardefaultsetting | yes   | theme_boost_union |
+    When I am on site homepage
+    Then the "class" attribute of "#page" "css_element" should contain "default-scrollbar"
+
+  Scenario: Setting: Default page scrollbar - Don't use the default scrollbar
+    Given the following config values are set as admin:
+      | config                      | value | plugin            |
+      | pagescrollbardefaultsetting | yes   | theme_boost_union |
+    When I am on site homepage
+    Then the "class" attribute of "#page" "css_element" should not contain "default-scrollbar"
