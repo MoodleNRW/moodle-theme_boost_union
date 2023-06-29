@@ -19,26 +19,6 @@
  }
 
 /*=======================================
- * Settings: Look -> Page
- ======================================*/
-
-/*---------------------------------------
- * Setting: Default page scrollbar
- --------------------------------------*/
-
- #page {
-    &.drawers {
-        &.default-scrollbar {
-            scrollbar-width: inherit;
-
-            &::-webkit-scrollbar {
-                width: inherit;
-            }
-        }
-    }
- }
-
-/*=======================================
  * Settings: Look -> Branding
  ======================================*/
 
