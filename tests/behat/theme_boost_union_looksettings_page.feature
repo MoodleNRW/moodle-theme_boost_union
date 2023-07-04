@@ -37,6 +37,6 @@ Feature: Configuring the theme_boost_union plugin for the "Page" tab on the "Loo
   Scenario: Setting: Default page scrollbar - Don't use the default scrollbar
     Given the following config values are set as admin:
       | config                      | value | plugin            |
-      | pagescrollbardefaultsetting | yes   | theme_boost_union |
+      | pagescrollbardefaultsetting | no    | theme_boost_union |
     When I am on site homepage
     Then the "class" attribute of "#page" "css_element" should not contain "default-scrollbar"
