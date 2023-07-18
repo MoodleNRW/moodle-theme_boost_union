@@ -1,20 +1,31 @@
-@theme @theme_boost_union @theme_boost_union_contentsettings @theme_boost_union_contentsettings_slider
+@theme @theme_boost_union @theme_boost_union_contentsettings @theme_boost_union_contentsettings_slider @_file_upload
 Feature: Configuring the theme_boost_union plugin for the "Slider" tab on the "Content" page
   In order to use the features
   As admin
   I need to be able to configure the theme Boost Union plugin
 
 Background:
-#ToDo: Via Admin Settings go to theme settings -> Content -> Slider, activate Slider, create a slide with image, caption & content
   Given the following config values are set as admin:
     | config                 | value                    | plugin            |
     | slideractivatedsetting | yes                      | theme_boost_union |
-    # ToDo: Add settings for 1 Slide...
+    | slide1enabled          | yes                      | theme_boost_union |
+    | oneslidecaption1       | yes                      | theme_boost_union |
+    | oneslideconent1        | yes                      | theme_boost_union |
+    # Set slider Image NOT WORKING
+    #And the following config values are set as admin:
+    #| debug          | 0 |
+    #| debugdisplay   | 0 |
+    #And I log in as "admin"
+    #And I navigate to "Appearance > Boost Union > Content" in site administration
+    #And I click on "Slider" "link" in the "#adminsettings .nav-tabs" "css_element"
+    #And I upload "theme/boost_union/tests/fixtures/login_bg1.jpg" file to "Slide 1 Image" filemanager
+    #And I press "Save changes"
 
 
 Scenario: Setting: Slider - Display Slider when activated
   When I am on site homepage
   Then ".boost-union-frontpage-slider" "css_element" should exist
+
 
 Scenario: Setting: Slider - Don't display Slider when deactivated
   Given the following config values are set as admin:
@@ -24,26 +35,10 @@ Scenario: Setting: Slider - Don't display Slider when deactivated
   Then ".boost-union-frontpage-slider" "css_element" should not exist
 
 
-# FILEUPLOAD TEST - Not working!
-# ToDo: need to find a way to see if upload worked, ideally without using xpath
-# @javascript @_file_upload
-#   Scenario: Setting: Slider - TODO add
-#     Given the following config values are set as admin:
-#       | config                 | value                             | plugin            |
-#       | slideractivatedsetting | yes                               | theme_boost_union |
-#     When I log in as "admin"
-#     # We deactivate debugging for a while as the Behat step would otherwise fail due to the
-#     # stupid 'Too much data passed as arguments to js_call_amd' debugging message which can't be avoided
-#     # on this settings page. This debugging message can't be avoided as we simple use too much hide_if() there.
-#     And the following config values are set as admin:
-#       | debug          | 0 |
-#       | debugdisplay   | 0 |
-#     And I navigate to "Appearance > Boost Union > Content" in site administration
-#     And I click on "Slider" "link" in the "#adminsettings .nav-tabs" "css_element"
-#     And I upload "theme/boost_union/tests/fixtures/login_bg1.jpg" file to "Choose a background image" filemanager
-#     And I press "Save changes"
-#     And I am on site homepage
-#     Then I should see "This works"
+# SZENARIO: Slider does not appear on dashboard
+
+
+# SZENARIO: Slider does not appear in created course
 
 
 # Scenario: Setting: Slider - Display the Slider on the frontpage only and nowhere else
