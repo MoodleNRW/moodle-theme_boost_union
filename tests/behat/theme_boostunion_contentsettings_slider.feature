@@ -1,26 +1,49 @@
-@theme @theme_boost_union @theme_boost_union_contentsettings @theme_boost_union_contentsettings_slider 
+@theme @theme_boost_union @theme_boost_union_contentsettings @theme_boost_union_contentsettings_slider @javascript @_file_upload
 Feature: Configuring the theme_boost_union plugin for the "Slider" tab on the "Content" page
   In order to use the features
   As admin
   I need to be able to configure the theme Boost Union plugin
 
-# TESTSZENARIO - LÖSCHEN
-@javascript @_file_upload
-Scenario: TEST
+
+Background:
   Given the following config values are set as admin:
    | debug          | 0 |
    | debugdisplay   | 0 |
-  When I log in as "admin"
+   And the following config values are set as admin:
+     | slideractivatedsetting | 1              | theme_boost_union |
+     | slide1enabled          | yes            | theme_boost_union |
+     | oneslidecaption1       | Caption        | theme_boost_union |
+     | oneslideconent1        | Content Text   | theme_boost_union |
+    And I log in as "admin"
     And I navigate to "Appearance > Boost Union > Content" in site administration
     And I click on "Slider" "link" in the "#adminsettings .nav-tabs" "css_element"
-    And I click on "Activate Slider to show on frontpage." "checkbox"
-    And I select "Yes" from the "Enable Slide 1" singleselect
     And I upload "theme/boost_union/tests/fixtures/login_bg1.jpg" file to "Slide 1 Image" filemanager
     And I press "Save changes"
-  Then I should see "Changes saved"
-    And the "Activate Slider to show on frontpage." "checkbox" should be enabled
-    And I am on site homepage
-    And ".boost-union-frontpage-slider" "css_element" should exist
+
+
+Scenario: Setting: Slider - Display Slider on Frontpage When activated
+  When I am on site homepage
+  Then ".boost-union-frontpage-slider" "css_element" should exist
+
+
+
+# TESTSZENARIO - LÖSCHEN
+# @javascript @_file_upload
+# Scenario: TEST
+#   Given the following config values are set as admin:
+#    | debug          | 0 |
+#    | debugdisplay   | 0 |
+#   When I log in as "admin"
+#     And I navigate to "Appearance > Boost Union > Content" in site administration
+#     And I click on "Slider" "link" in the "#adminsettings .nav-tabs" "css_element"
+#     And I click on "Activate Slider to show on frontpage." "checkbox"
+#     And I select "Yes" from the "Enable Slide 1" singleselect
+#     And I upload "theme/boost_union/tests/fixtures/login_bg1.jpg" file to "Slide 1 Image" filemanager
+#     And I press "Save changes"
+#   Then I should see "Changes saved"
+#     And the "Activate Slider to show on frontpage." "checkbox" should be enabled
+#     And I am on site homepage
+#     And ".boost-union-frontpage-slider" "css_element" should exist
 
 
 # Background:
@@ -46,24 +69,7 @@ Scenario: TEST
 #     And I log in as "teacher1"
 #     And I am on site homepage
 
-# @javascript @_file_upload
-# Scenario: Setting: Slider - Display Slider when activated
-# Given the following config values are set as admin:
-#   | config                 | value                    | plugin            |
-#   | slideractivatedsetting | yes                      | theme_boost_union |
-#   | slide1enabled          | yes                      | theme_boost_union |
-#   | oneslidecaption1       | caption                      | theme_boost_union |
-#   | oneslideconent1        | content                      | theme_boost_union |
-#   And the following config values are set as admin:
-#   | debug          | 0 |
-#   | debugdisplay   | 0 |
-#   When I log in as "admin"
-#     And I navigate to "Appearance > Boost Union > Content" in site administration
-#     And I click on "Slider" "link" in the "#adminsettings .nav-tabs" "css_element"
-#     And I upload "theme/boost_union/tests/fixtures/login_bg1.jpg" file to "Slide 1 Image" filemanager
-#     And I press "Save changes"
-#     And I am on site homepage
-#   Then ".boost-union-frontpage-slider" "css_element" should exist
+
 
 
 # Scenario: Setting: Slider - Don't display Slider when deactivated
