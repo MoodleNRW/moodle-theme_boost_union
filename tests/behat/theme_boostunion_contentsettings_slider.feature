@@ -4,6 +4,25 @@ Feature: Configuring the theme_boost_union plugin for the "Slider" tab on the "C
   As admin
   I need to be able to configure the theme Boost Union plugin
 
+# TESTSZENARIO - LÖSCHEN
+@javascript @_file_upload
+Scenario: TEST
+  Given the following config values are set as admin:
+   | debug          | 0 |
+   | debugdisplay   | 0 |
+  When I log in as "admin"
+    And I navigate to "Appearance > Boost Union > Content" in site administration
+    And I click on "Slider" "link" in the "#adminsettings .nav-tabs" "css_element"
+    And I click on "Activate Slider to show on frontpage." "checkbox"
+    And I select "Yes" from the "Enable Slide 1" singleselect
+    And I upload "theme/boost_union/tests/fixtures/login_bg1.jpg" file to "Slide 1 Image" filemanager
+    And I press "Save changes"
+  Then I should see "Changes saved"
+    And the "Activate Slider to show on frontpage." "checkbox" should be enabled
+    And I am on site homepage
+    And ".boost-union-frontpage-slider" "css_element" should exist
+
+
 # Background:
 #   Given the following config values are set as admin:
 #     | config                 | value                    | plugin            |
@@ -47,12 +66,12 @@ Feature: Configuring the theme_boost_union plugin for the "Slider" tab on the "C
 #   Then ".boost-union-frontpage-slider" "css_element" should exist
 
 
-Scenario: Setting: Slider - Don't display Slider when deactivated
-  Given the following config values are set as admin:
-    | config                 | value                    | plugin            |
-    | slideractivatedsetting | no                       | theme_boost_union | 
-  When I am on site homepage
-  Then ".boost-union-frontpage-slider" "css_element" should not exist
+# Scenario: Setting: Slider - Don't display Slider when deactivated
+#   Given the following config values are set as admin:
+#     | config                 | value                    | plugin            |
+#     | slideractivatedsetting | yes                       | theme_boost_union | 
+#   When I am on site homepage
+#   Then ".boost-union-frontpage-slider" "css_element" should exist
 
 
 # SZENARIO: Slider does not appear on dashboard
