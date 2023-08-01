@@ -36,30 +36,19 @@ Scenario: Setting: Slider - Don't display Slider when deactivated
   Then ".boost-union-frontpage-slider" "css_element" should not exist
 
 
-# SZENARIO: Slider does not appear on dashboard
+Scenario: Slider does not appear on any other page than frontpage - e.g. Dashboard
+  When I follow "Dashboard"
+  Then ".boost-union-frontpage-slider" "css_element" should not exist
 
+@ezylryb
+Scenario: Slider does not appear on any other page than frontpage - e.g. Course
+  Given the following "courses" exist:
+      | shortname | fullname |
+      | C1        | Course 1 |
+  And I log in as "admin"
+  And I am on "Course 1" course homepage
+  Then ".boost-union-frontpage-slider" "css_element" should not exist
 
-# SZENARIO: Slider does not appear in created course
-
-
-# Scenario: Setting: Slider - Display the Slider on the frontpage only and nowhere else
-#     Given the following config values are set as admin:
-
-#     When 
-#     Then 
-
-#   Scenario Outline: Setting: Slider - Display a Slide only if it is enabled
-#     Given the following config values are set as admin:
-#       | config       | value                             | plugin            |
-#       | tile1enabled | <enabled>                         | theme_boost_union |
-#     When I log in as "teacher1"
-#     And I am on site homepage
-#     Then "#themeboostunionadvtile1" "css_element" <shouldexist>
-
-#     Examples:
-#       | enabled | shouldexist      |
-#       | yes     | should exist     |
-#       | no      | should not exist |
 
 #   Scenario Outline: Setting: Slider - Display the Slider before or after the main output of site home
 #     Given the following config values are set as admin:
