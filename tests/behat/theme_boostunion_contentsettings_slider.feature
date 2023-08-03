@@ -63,3 +63,19 @@ Scenario Outline: Setting: Slider position - Display Slider before or after main
     | 2        | after       |
 
 
+# ToDo: Arrow nav & Indicator nav
+# ToDo: animation type (class)
+
+@ezylryb
+Scenario Outline: Setting: Slideshow interval speed
+  Given the following config values are set as admin:
+   | config                    | value           | plugin            |
+   | sliderintervalsetting     | <setting>       | theme_boost_union |
+  When I am on site homepage
+  Then the "data-interval" attribute of "#slider" "css_element" should contain "<speed>"
+
+  Examples:
+   | setting | speed     |
+   | 500     | 1000      |
+   | 4321    | 4321      |
+   | 10001   | 10000     |
