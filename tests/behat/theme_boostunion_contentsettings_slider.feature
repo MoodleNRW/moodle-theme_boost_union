@@ -40,25 +40,26 @@ Scenario: Slider does not appear on any other page than frontpage - e.g. Dashboa
   When I follow "Dashboard"
   Then ".boost-union-frontpage-slider" "css_element" should not exist
 
-@ezylryb
+
 Scenario: Slider does not appear on any other page than frontpage - e.g. Course
   Given the following "courses" exist:
-      | shortname | fullname |
-      | C1        | Course 1 |
-  And I log in as "admin"
-  And I am on "Course 1" course homepage
+   | shortname | fullname |
+   | C1        | Course 1 |
+    And I log in as "admin"
+    And I am on "Course 1" course homepage
   Then ".boost-union-frontpage-slider" "css_element" should not exist
 
 
-#   Scenario Outline: Setting: Slider - Display the Slider before or after the main output of site home
-#     Given the following config values are set as admin:
-#       | config                | value                             | plugin            |
-#       | tilefrontpageposition | <position>                        | theme_boost_union |
-#       # benötigt 1 Bild für 1 Slide
-#     When I am on site homepage
-#     Then "#themeboostunionadvtiles" "css_element" should appear <beforeafter> "#region-main" "css_element"
+Scenario Outline: Setting: Slider position - Display Slider before or after main content of site home
+  Given the following config values are set as admin:
+   | config                    | value              | plugin            |
+   | sliderpositiononfrontpage | <position>         | theme_boost_union |
+  When I am on site homepage
+  Then ".boost-union-frontpage-slider" "css_element" should appear <beforeafter> "#region-main" "css_element"
 
-#     Examples:
-#       | position | beforeafter |
-#       | 1        | before      |
-#       | 2        | after       |
+  Examples:
+    | position | beforeafter |
+    | 1        | before      |
+    | 2        | after       |
+
+
