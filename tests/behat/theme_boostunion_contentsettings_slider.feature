@@ -7,13 +7,15 @@ Feature: Configuring the theme_boost_union plugin for the "Slider" tab on the "C
 
 Background:
   Given the following config values are set as admin:
-   | debug          | 0 |
-   | debugdisplay   | 0 |
+     | debug          | 0 |
+     | debugdisplay   | 0 |
    And the following config values are set as admin:
      | slideractivatedsetting | 1              | theme_boost_union |
      | slide1enabled          | yes            | theme_boost_union |
+     | slidercontentsetting   | 1              | theme_boost_union |
+     | slidercaptionsetting   | 1              | theme_boost_union |
      | oneslidecaption1       | Caption        | theme_boost_union |
-     | oneslideconent1        | Content Text   | theme_boost_union |
+     | oneslidecontent1       | Content Text   | theme_boost_union |
     And I log in as "admin"
     And I navigate to "Appearance > Boost Union > Content" in site administration
     And I click on "Slider" "link" in the "#adminsettings .nav-tabs" "css_element"
@@ -21,11 +23,27 @@ Background:
     And I press "Save changes"
 
 
-Scenario: Setting: Slider - Display Slider on Frontpage When activated
+Scenario: Setting: Slider - Display Slider with caption and content
   When I am on site homepage
   Then ".boost-union-frontpage-slider" "css_element" should exist
+  And I should see "Caption"
+  And I should see "Content Text"
 
+Scenario: Setting: Slider - Display Slider with caption and no content
+  Given the following config values are set as admin:
+     | slidercontentsetting | 0              | theme_boost_union |
+  When I am on site homepage
+  Then ".boost-union-frontpage-slider" "css_element" should exist
+  And I should see "Caption"
+  But I should not see "Content Text"
 
+Scenario: Setting: Slider - Display Slider with no caption and content
+  Given the following config values are set as admin:
+     | slidercaptionsetting | 0              | theme_boost_union |
+  When I am on site homepage
+  Then ".boost-union-frontpage-slider" "css_element" should exist
+  And I should not see "Caption"
+  But I should see "Content Text"
 
 # TESTSZENARIO - LÖSCHEN
 # @javascript @_file_upload
@@ -75,7 +93,7 @@ Scenario: Setting: Slider - Display Slider on Frontpage When activated
 # Scenario: Setting: Slider - Don't display Slider when deactivated
 #   Given the following config values are set as admin:
 #     | config                 | value                    | plugin            |
-#     | slideractivatedsetting | yes                       | theme_boost_union | 
+#     | slideractivatedsetting | yes                       | theme_boost_union |
 #   When I am on site homepage
 #   Then ".boost-union-frontpage-slider" "css_element" should exist
 
@@ -89,8 +107,8 @@ Scenario: Setting: Slider - Display Slider on Frontpage When activated
 # Scenario: Setting: Slider - Display the Slider on the frontpage only and nowhere else
 #     Given the following config values are set as admin:
 
-#     When 
-#     Then 
+#     When
+#     Then
 
 #   Scenario Outline: Setting: Slider - Display a Slide only if it is enabled
 #     Given the following config values are set as admin:
