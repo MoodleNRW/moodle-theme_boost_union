@@ -22,18 +22,18 @@ Background:
     And I upload "theme/boost_union/tests/fixtures/login_bg1.jpg" file to "Slide 1 Image" filemanager
     And I press "Save changes"
 
-
-Scenario: Setting: Slider - Display Slider on Frontpage When activated
-  When I am on site homepage
-  Then ".boost-union-frontpage-slider" "css_element" should exist
-
-
-Scenario: Setting: Slider - Don't display Slider when deactivated
+@ezylryb
+Scenario Outline: Setting: Slider - Display Slider on Frontpage When activated
   Given the following config values are set as admin:
    | config                 | value                    | plugin            |
-   | slideractivatedsetting | 0                        | theme_boost_union | 
+   | slideractivatedsetting | <setting>                | theme_boost_union | 
   When I am on site homepage
-  Then ".boost-union-frontpage-slider" "css_element" should not exist
+  Then ".boost-union-frontpage-slider" "css_element" <shouldnotexist>
+
+  Examples:
+   | setting | shouldnotexist     |
+   | 0        | should not exist  |
+   | 1        | should exist      |
 
 
 Scenario: Slider does not appear on any other page than frontpage - e.g. Dashboard
@@ -78,7 +78,7 @@ Scenario Outline: Setting: Enable/Disable Indicator & Arrow navigation
    | 0       | should not exist |
 
 
-@ezylryb
+
 Scenario Outline: Setting: Pick Slide Animation
   Given the following config values are set as admin:
    | config                      | value           | plugin            |
@@ -106,3 +106,11 @@ Scenario Outline: Setting: Slideshow interval speed
    | 500     | 1000      |
    | 4321    | 4321      |
    | 10001   | 10000     |
+
+# Scenario: No picture -> no Slide
+# Scenario: css_element image title
+# Scenario: css_element image link & link title
+# Scenario: I should see Caption & Content Texts
+
+# Scenario: disable slide one -> should not be found
+# Scenario: Check that slides really change: add second slide, check that .active moves and text changes
