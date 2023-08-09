@@ -14,8 +14,6 @@ Background:
      | slidercaptionsetting   | 1              | theme_boost_union |
      | slidercontentsetting   | 1              | theme_boost_union |
      | slide1enabled          | yes            | theme_boost_union |
-     | oneslidecaption1       | Caption        | theme_boost_union |
-     | oneslidecontent1       | Content Text   | theme_boost_union |
     And I log in as "admin"
     And I navigate to "Appearance > Boost Union > Content" in site administration
     And I click on "Slider" "link" in the "#adminsettings .nav-tabs" "css_element"
@@ -116,23 +114,39 @@ Scenario: No picture no slide
     And I am on site homepage
   Then ".boost-union-frontpage-slider .carousel-item" "css_element" should not exist
 
+@ezylryb
+Scenario: Disable Slide
+  Given the following config values are set as admin:
+   | config                 | value          | plugin            |
+   | slide1enabled          | no             | theme_boost_union |
+  When I am on site homepage
+  Then ".boost-union-frontpage-slider .carousel-item" "css_element" should not exist
 
 Scenario: Image Title
   Given the following config values are set as admin:
+   | config                 | value                           | plugin            |
    | oneslideimagetitle1    | This is an image description    | theme_boost_union |
   When I am on site homepage
   Then the "alt" attribute of ".boost-union-frontpage-slider .carousel-item img" "css_element" should contain "This is an image description"
 
-@ezylryb
+
 Scenario: Link & Link title
   Given the following config values are set as admin:
+   | config              | value                                 | plugin            |
    | oneslidelink1       | https://moodlenrw.de/                 | theme_boost_union |
    | oneslidelinktitle1  | Visit the Moodle.NRW Knowledge Base!  | theme_boost_union |
    When I am on site homepage
    Then the "href" attribute of ".boost-union-frontpage-slider .carousel-item a" "css_element" should contain "https://moodlenrw.de/"
    And the "title" attribute of ".boost-union-frontpage-slider .carousel-item a" "css_element" should contain "Visit the Moodle.NRW Knowledge Base!"
 
-# Scenario: I should see Caption & Content Texts
 
-# Scenario: disable slide one -> should not be found
+Scenario: Caption & Content Texts
+  Given the following config values are set as admin:
+   | config                 | value          | plugin            |
+   | oneslidecaption1       | Caption Text   | theme_boost_union |
+   | oneslidecontent1       | Content Text   | theme_boost_union |
+  When I am on site homepage
+  Then I should see "Caption Text" in the ".boost-union-frontpage-slider .carousel-item .carousel-caption h5" "css_element"
+  And I should see "Content Text" in the ".boost-union-frontpage-slider .carousel-item .carousel-caption p" "css_element"
+
 # Scenario: Check that slides really change: add second slide, check that .active moves and text changes
