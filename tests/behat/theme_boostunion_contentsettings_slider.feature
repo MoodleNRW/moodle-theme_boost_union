@@ -125,8 +125,13 @@ Scenario: Image Title
 
 @ezylryb
 Scenario: Link & Link title
-  
-# Scenario: css_element image link & link title
+  Given the following config values are set as admin:
+   | oneslidelink1       | https://moodlenrw.de/                 | theme_boost_union |
+   | oneslidelinktitle1  | Visit the Moodle.NRW Knowledge Base!  | theme_boost_union |
+   When I am on site homepage
+   Then the "href" attribute of ".boost-union-frontpage-slider .carousel-item a" "css_element" should contain "https://moodlenrw.de/"
+   And the "title" attribute of ".boost-union-frontpage-slider .carousel-item a" "css_element" should contain "Visit the Moodle.NRW Knowledge Base!"
+
 # Scenario: I should see Caption & Content Texts
 
 # Scenario: disable slide one -> should not be found
