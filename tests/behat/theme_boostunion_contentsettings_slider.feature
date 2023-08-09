@@ -62,11 +62,25 @@ Scenario Outline: Setting: Slider position - Display Slider before or after main
     | 1        | before      |
     | 2        | after       |
 
+@ezylryb
+Scenario Outline: Setting: Enable/Disable Indicator & Arrow navigation
+  Given the following config values are set as admin:
+   | config                      | value           | plugin            |
+   | sliderarrownavsetting       | <setting>       | theme_boost_union |
+   | sliderindicatornavsetting   | <setting>       | theme_boost_union |
+  When I am on site homepage
+  Then ".boost-union-frontpage-slider #slider .carousel-control-next" "css_element" <shouldnotexist>
+  And ".boost-union-frontpage-slider #slider .carousel-indicators" "css_element" <shouldnotexist>
 
-# ToDo: Arrow nav & Indicator nav
+  Examples:
+   | setting | shouldnotexist   |
+   | 1       | should exist     |
+   | 0       | should not exist |
+
+
 # ToDo: animation type (class)
 
-@ezylryb
+
 Scenario Outline: Setting: Slideshow interval speed
   Given the following config values are set as admin:
    | config                    | value           | plugin            |
