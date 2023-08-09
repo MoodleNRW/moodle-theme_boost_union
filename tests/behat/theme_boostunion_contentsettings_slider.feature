@@ -22,7 +22,7 @@ Background:
     And I upload "theme/boost_union/tests/fixtures/login_bg1.jpg" file to "Slide 1 Image" filemanager
     And I press "Save changes"
 
-@ezylryb
+
 Scenario Outline: Setting: Slider - Display Slider on Frontpage When activated
   Given the following config values are set as admin:
    | config                 | value                    | plugin            |
@@ -107,7 +107,18 @@ Scenario Outline: Setting: Slideshow interval speed
    | 4321    | 4321      |
    | 10001   | 10000     |
 
-# Scenario: No picture -> no Slide
+
+@ezylryb
+Scenario: No picture no slide
+  When I log in as "admin"
+    And I navigate to "Appearance > Boost Union > Content" in site administration
+    And I click on "Slider" "link" in the "#adminsettings .nav-tabs" "css_element"
+    And I delete "login_bg1.jpg" from "Slide 1 Image" filemanager
+    And I press "Save changes"
+    And I am on site homepage
+  Then ".boost-union-frontpage-slider .carousel-item" "css_element" should not exist
+
+
 # Scenario: css_element image title
 # Scenario: css_element image link & link title
 # Scenario: I should see Caption & Content Texts
