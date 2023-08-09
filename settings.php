@@ -1670,7 +1670,7 @@ if ($hassiteconfig || has_capability('theme/boost_union:configure', context_syst
         $title = get_string('slidergeneralheading', 'theme_boost_union', null, true);
         $setting = new admin_setting_heading($name, $title, null);
         $tab->add($setting);
-        
+
         // Setting: Toggle whether Slider is shown.
         $title = get_string('slideractivatedsetting', 'theme_boost_union', null, true);
         $setting = new admin_setting_configcheckbox("theme_boost_union/slideractivatedsetting", $title, "", 0);
@@ -1685,7 +1685,8 @@ if ($hassiteconfig || has_capability('theme/boost_union:configure', context_syst
         );
         $name = 'theme_boost_union/sliderpositiononfrontpage';
         $title = get_string('sliderpositiononfrontpage', 'theme_boost_union', null, true);
-        $setting = new admin_setting_configselect($name, $title, "", THEME_BOOST_UNION_SETTING_SLIDER_FRONTPAGEPOSITION_BEFORE, $choices);
+        $setting = new admin_setting_configselect($name, $title, "",
+                THEME_BOOST_UNION_SETTING_SLIDER_FRONTPAGEPOSITION_BEFORE, $choices);
         $tab->add($setting);
 
         // Setting: Toggle whether Slider Arrow Controls are shown.
@@ -1710,13 +1711,15 @@ if ($hassiteconfig || has_capability('theme/boost_union:configure', context_syst
 
         // Setting: Select a slide-animation.
         $title = get_string('slideranimationsetting', 'theme_boost_union', null, true);
-        $setting = new admin_setting_configselect("theme_boost_union/slideranimationsetting", $title, "", 0, array(0=>'slide',1=>'fade',2=>'none'));
+        $setting = new admin_setting_configselect("theme_boost_union/slideranimationsetting", $title, "", 0,
+                array(0 => 'slide', 1 => 'fade', 2 => 'none'));
         $tab->add($setting);
-        
-        //Setting: Set interval speed.
+
+        // Setting: Set interval speed.
         $title = get_string('sliderintervalsetting', 'theme_boost_union', null, true);
         $description = get_string('sliderintervalsetting_desc', 'theme_boost_union', null, true);
-        $setting = new admin_setting_configtext("theme_boost_union/sliderintervalsetting", $title, $description, 5000, PARAM_INT, 6);
+        $setting = new admin_setting_configtext("theme_boost_union/sliderintervalsetting",
+                $title, $description, 5000, PARAM_INT, 6);
         $tab->add($setting);
 
         // Create a hardcoded amount of slides.
@@ -1727,7 +1730,7 @@ if ($hassiteconfig || has_capability('theme/boost_union:configure', context_syst
             $title = get_string('oneslidetab', 'theme_boost_union', array('no' => $i), true);
             $setting = new admin_setting_heading($name, $title, null);
             $tab->add($setting);
-        
+
             // Setting: Slide enabled.
             $name = 'theme_boost_union/slide'.$i.'enabled';
             $title = get_string('oneslideenabled', 'theme_boost_union', array('no' => $i), true);
@@ -1778,7 +1781,7 @@ if ($hassiteconfig || has_capability('theme/boost_union:configure', context_syst
             $tab->add($setting);
             $page->hide_if('theme_boost_union/oneslidecaption'.$i, 'theme_boost_union/slide'.$i.'enabled', 'neq',
             THEME_BOOST_UNION_SETTING_SELECT_YES);
-            
+
             // Setting: Set Content text.
             $name = 'theme_boost_union/oneslidecontent'.$i;
             $title = get_string('oneslidecontent', 'theme_boost_union', array('no' => $i), null, true);
@@ -1786,7 +1789,6 @@ if ($hassiteconfig || has_capability('theme/boost_union:configure', context_syst
             $tab->add($setting);
             $page->hide_if('theme_boost_union/oneslidecontent'.$i, 'theme_boost_union/slide'.$i.'enabled', 'neq',
             THEME_BOOST_UNION_SETTING_SELECT_YES);
-            
         }
 
         // Add tab to settings page.

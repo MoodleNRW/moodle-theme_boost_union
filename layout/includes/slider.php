@@ -1,10 +1,31 @@
 <?php
-// add head comment here 
+// This file is part of Moodle - http://moodle.org/
+//
+// Moodle is free software: you can redistribute it and/or modify
+// it under the terms of the GNU General Public License as published by
+// the Free Software Foundation, either version 3 of the License, or
+// (at your option) any later version.
+//
+// Moodle is distributed in the hope that it will be useful,
+// but WITHOUT ANY WARRANTY; without even the implied warranty of
+// MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+// GNU General Public License for more details.
+//
+// You should have received a copy of the GNU General Public License
+// along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
+
+/**
+ * Theme Boost Union - scrollspy include.
+ *
+ * @package   theme_boost_union
+ * @copyright 2023 Annika Lambert <annika.lambert@itc.ruhr-uni-bochum.de>
+ * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ */
 
 defined('MOODLE_INTERNAL') || die();
 
 // Require the necessary libraries.
-require_once($CFG->dirroot.'/theme/boost_union/locallib.php');
+require_once($CFG->dirroot . '/theme/boost_union/locallib.php');
 
 // Get theme config.
 $config = get_config('theme_boost_union');
@@ -41,30 +62,29 @@ if ($generalsettings->show) {
     }
     if ($config->{'sliderintervalsetting'} < 1000) {
         $generalsettings->interval = 1000;
-    } elseif ($config->{'sliderintervalsetting'} > 10000) {
+    } else if ($config->{'sliderintervalsetting'} > 10000) {
         $generalsettings->interval = 10000;
     } else {
         $generalsettings->interval = $config->{'sliderintervalsetting'};
     }
-    
+
     $templatecontext['slidergeneralsettings'] = $generalsettings;
-    
-    
+
+
     $slides = array();
-    for ($i = 1; $i <= THEME_BOOST_UNION_SETTING_SLIDES_COUNT; $i++){
-        $slider_image = theme_boost_union_get_urlofsliderimage($i);
-        if ($slider_image && $config->{'slide'.$i.'enabled'} == THEME_BOOST_UNION_SETTING_SELECT_YES) {
-            $slider_content = new stdClass();
-            $slider_content->count = count($slides);
-            $slider_content->image = $slider_image;
-            $slider_content->imagetitle = $config->{'oneslideimagetitle'.$i};
-            $slider_content->link = $config->{'oneslidelink'.$i};
-            $slider_content->linktitle = $config->{'oneslidelinktitle'.$i};
-            $slider_content->caption = $config->{'oneslidecaption'.$i};
-            $slider_content->content = $config->{'oneslidecontent'.$i};
-            array_push($slides,$slider_content);
+    for ($i = 1; $i <= THEME_BOOST_UNION_SETTING_SLIDES_COUNT; $i++) {
+        $sliderimage = theme_boost_union_get_urlofsliderimage($i);
+        if ($sliderimage && $config->{'slide' . $i . 'enabled'} == THEME_BOOST_UNION_SETTING_SELECT_YES) {
+            $slidercontent = new stdClass();
+            $slidercontent->count = count($slides);
+            $slidercontent->image = $sliderimage;
+            $slidercontent->imagetitle = $config->{'oneslideimagetitle' . $i};
+            $slidercontent->link = $config->{'oneslidelink' . $i};
+            $slidercontent->linktitle = $config->{'oneslidelinktitle' . $i};
+            $slidercontent->caption = $config->{'oneslidecaption' . $i};
+            $slidercontent->content = $config->{'oneslidecontent' . $i};
+            array_push($slides, $slidercontent);
         }
-        
     }
     $templatecontext['slidecontent'] = $slides;
 }
