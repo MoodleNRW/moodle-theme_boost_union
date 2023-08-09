@@ -11,10 +11,9 @@ Background:
    | debugdisplay   | 0 |
    And the following config values are set as admin:
      | slideractivatedsetting | 1              | theme_boost_union |
-     | slide1enabled          | yes            | theme_boost_union |
-     | oneslideimagetitle1    | This is an image description    | theme_boost_union |
      | slidercaptionsetting   | 1              | theme_boost_union |
      | slidercontentsetting   | 1              | theme_boost_union |
+     | slide1enabled          | yes            | theme_boost_union |
      | oneslidecaption1       | Caption        | theme_boost_union |
      | oneslidecontent1       | Content Text   | theme_boost_union |
     And I log in as "admin"
@@ -79,7 +78,6 @@ Scenario Outline: Setting: Enable/Disable Indicator & Arrow navigation
    | 0       | should not exist |
 
 
-
 Scenario Outline: Setting: Pick Slide Animation
   Given the following config values are set as admin:
    | config                      | value           | plugin            |
@@ -109,7 +107,6 @@ Scenario Outline: Setting: Slideshow interval speed
    | 10001   | 10000     |
 
 
-
 Scenario: No picture no slide
   When I log in as "admin"
     And I navigate to "Appearance > Boost Union > Content" in site administration
@@ -119,13 +116,16 @@ Scenario: No picture no slide
     And I am on site homepage
   Then ".boost-union-frontpage-slider .carousel-item" "css_element" should not exist
 
-@ezylryb
+
 Scenario: Image Title
+  Given the following config values are set as admin:
+   | oneslideimagetitle1    | This is an image description    | theme_boost_union |
   When I am on site homepage
   Then the "alt" attribute of ".boost-union-frontpage-slider .carousel-item img" "css_element" should contain "This is an image description"
 
-
-# Scenario: css_element image title
+@ezylryb
+Scenario: Link & Link title
+  
 # Scenario: css_element image link & link title
 # Scenario: I should see Caption & Content Texts
 
