@@ -10,6 +10,7 @@ Background:
    | debug          | 0 |
    | debugdisplay   | 0 |
    And the following config values are set as admin:
+     | config                 | value          | plugin            |
      | slideractivatedsetting | 1              | theme_boost_union |
      | slidercaptionsetting   | 1              | theme_boost_union |
      | slidercontentsetting   | 1              | theme_boost_union |
@@ -29,7 +30,7 @@ Scenario Outline: Setting: Slider - Display Slider on Frontpage When activated
   Then ".boost-union-frontpage-slider" "css_element" <shouldnotexist>
 
   Examples:
-   | setting | shouldnotexist     |
+   | setting  | shouldnotexist    |
    | 0        | should not exist  |
    | 1        | should exist      |
 
@@ -114,7 +115,7 @@ Scenario: No picture no slide
     And I am on site homepage
   Then ".boost-union-frontpage-slider .carousel-item" "css_element" should not exist
 
-@ezylryb
+
 Scenario: Disable Slide
   Given the following config values are set as admin:
    | config                 | value          | plugin            |
@@ -149,4 +150,18 @@ Scenario: Caption & Content Texts
   Then I should see "Caption Text" in the ".boost-union-frontpage-slider .carousel-item .carousel-caption h5" "css_element"
   And I should see "Content Text" in the ".boost-union-frontpage-slider .carousel-item .carousel-caption p" "css_element"
 
-# Scenario: Check that slides really change: add second slide, check that .active moves and text changes
+@ezylryb #NOT yet working (text not found)! ToDo: Scroll down, take screenshot, confirm whether it's there or not
+Scenario: Slides really do the sliding
+  Given the following config values are set as admin:
+   | config                 | value          | plugin            |
+   | sliderintervalsetting  | 1000           | theme_boost_union |
+   | slide2enabled          | yes            | theme_boost_union |
+   | oneslidecaption2       | Slide Two      | theme_boost_union |
+  When I log in as "admin"
+    And I navigate to "Appearance > Boost Union > Content" in site administration
+    And I click on "Slider" "link" in the "#adminsettings .nav-tabs" "css_element"
+    And I upload "theme/boost_union/tests/fixtures/moodlelogo.png" file to "Slide 2 Image" filemanager
+    And I press "Save changes"
+    And I am on site homepage
+    And I wait "2" seconds
+  Then I should see "Slide Two" in the ".boost-union-frontpage-slider .carousel-item .carousel-caption h5" "css_element"
