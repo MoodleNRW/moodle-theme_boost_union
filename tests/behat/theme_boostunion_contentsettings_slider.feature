@@ -84,13 +84,14 @@ Scenario Outline: Setting: Pick Slide Animation
    | config                      | value           | plugin            |
    | slideranimationsetting      | <setting>       | theme_boost_union |
   When I am on site homepage
-  Then ".boost-union-frontpage-slider <animation>" "css_element" should exist
+  Then ".boost-union-frontpage-slider <animation>" "css_element" <shouldnotexist>
 
   Examples:
-   | setting | animation             |
-   | 0       | .slide                |
-   | 1       | .carousel-fade        |
-   | 2       | .carousel             |
+   | setting | animation             | shouldnotexist    |
+   | 0       | .slide                | should exist      |
+   | 1       | .carousel-fade        | should exist      |
+   | 2       | .slide                | should not exist  |
+   | 2       | .carousel-fade        | should not exist  |
 
 
 Scenario Outline: Setting: Slideshow interval speed
