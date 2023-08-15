@@ -1398,3 +1398,14 @@ function theme_boost_union_get_block_regions($layout) {
     // Return.
     return $regions;
 }
+
+/**
+ * Get the css settings for the slider feature.
+ */
+function theme_boost_union_get_slider_scss() {
+    $layout = ".carousel-caption { text-shadow: 0px 0px 2px black; }";
+    $layout .= ".carousel-control-prev, .carousel-control-next { filter: drop-shadow( 0px 0px 2px rgb(0, 0, 0)); }";
+    $layout .= ".carousel-indicators { filter: drop-shadow( 0px 0px 1px rgb(0, 0, 0)); }";
+
+    return $layout;
+}
