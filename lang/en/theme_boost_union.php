@@ -647,26 +647,26 @@ $string['tiletitlesetting_desc'] = 'Here, you enter the title which should be di
 $string['slidertab'] = 'Slider';
 // ... Section: Slider general.
 $string['slidergeneralheading'] = 'Slider general';
-$string['slideractivatedsetting'] = 'Activate Slider to show on frontpage.';
-$string['sliderpositiononfrontpage'] = 'Position of Slider';
+$string['slideractivatedsetting'] = 'Activate slider to show on frontpage';
+$string['sliderpositiononfrontpage'] = 'Position of slider';
 $string['sliderfrontpagepositionsetting_before'] = 'before page content';
 $string['sliderfrontpagepositionsetting_after'] = 'after page content';
-$string['sliderarrownavsetting'] = 'Enable Slider arrow navigation';
-$string['sliderindicatornavsetting'] = 'Enable Slider Indicator navigation';
-$string['slideranimationsetting'] = 'Animation Type';
-$string['sliderintervalsetting'] = 'Interval Speed';
-$string['sliderintervalsetting_desc'] = 'Duration before slide changes in Miliseconds. Minimum = 1000 (one second), Maximum = 10000 (10 seconds)';
+$string['sliderarrownavsetting'] = 'Enable slider arrow navigation';
+$string['sliderindicatornavsetting'] = 'Enable slider indicator navigation';
+$string['slideranimationsetting'] = 'Animation type';
+$string['sliderintervalsetting'] = 'Interval speed';
+$string['sliderintervalsetting_desc'] = 'Duration before slide changes in miliseconds. Minimum = 1000 (one second), Maximum = 10000 (10 seconds)';
 // ... Section: One Slide.
 $string['oneslidetab'] = 'Slide {$a->no}';
-$string['oneslideenabled'] = 'Enable Slide {$a->no}';
-$string['oneslideenabled_desc'] = 'Enable, to expand slide configuration. A picture is required for the slide to be included.';
-$string['oneslidepickimage'] = 'Slide {$a->no} Image';
-$string['oneslidepickimage_desc'] = 'It is required to set a picture!';
-$string['oneslideimagetitle'] = 'Slide {$a->no} Image title';
-$string['oneslidelink'] = 'Slide {$a->no} Link behind Image';
-$string['oneslidelinktitle'] = 'Slide {$a->no} Link title';
-$string['oneslidecaption'] = 'Slide {$a->no} Write a Caption Text';
-$string['oneslidecontent'] = 'Slide {$a->no} Write a Content Text';
+$string['oneslideenabled'] = 'Enable slide {$a->no}';
+$string['oneslideenabled_desc'] = 'Enable to expand slide configuration. An image is required for the slide to be included.';
+$string['oneslidepickimage'] = 'Slide {$a->no} image';
+$string['oneslidepickimage_desc'] = 'It is required to set an image.';
+$string['oneslideimagetitle'] = 'Slide {$a->no} image title';
+$string['oneslidelink'] = 'Slide {$a->no} link behind image';
+$string['oneslidelinktitle'] = 'Slide {$a->no} link title';
+$string['oneslidecaption'] = 'Slide {$a->no} caption';
+$string['oneslidecontent'] = 'Slide {$a->no} content';
 
 // ... Section: Site home right-hand block drawer behaviour.
 $string['sitehomerighthandblockdrawerbehaviour'] = 'Site home right-hand block drawer';
