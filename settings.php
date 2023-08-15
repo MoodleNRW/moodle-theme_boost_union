@@ -1699,16 +1699,6 @@ if ($hassiteconfig || has_capability('theme/boost_union:configure', context_syst
         $setting = new admin_setting_configcheckbox("theme_boost_union/sliderindicatornavsetting", $title, "", 0);
         $tab->add($setting);
 
-        // Setting: Toggle whether slides can have a caption text.
-        $title = get_string('slidercaptionsetting', 'theme_boost_union', null, true);
-        $setting = new admin_setting_configcheckbox("theme_boost_union/slidercaptionsetting", $title, "", 0);
-        $tab->add($setting);
-
-        // Setting: Toggle whether slides can have a content text.
-        $title = get_string('slidercontentsetting', 'theme_boost_union', null, true);
-        $setting = new admin_setting_configcheckbox("theme_boost_union/slidercontentsetting", $title, "", 0);
-        $tab->add($setting);
-
         // Setting: Select a slide-animation.
         $title = get_string('slideranimationsetting', 'theme_boost_union', null, true);
         $setting = new admin_setting_configselect("theme_boost_union/slideranimationsetting", $title, "", 0,
