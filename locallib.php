@@ -1406,6 +1406,8 @@ function theme_boost_union_get_slider_scss() {
     $layout = ".carousel-caption { text-shadow: 0px 0px 2px black; }";
     $layout .= ".carousel-control-prev, .carousel-control-next { filter: drop-shadow( 0px 0px 2px rgb(0, 0, 0)); }";
     $layout .= ".carousel-indicators { filter: drop-shadow( 0px 0px 1px rgb(0, 0, 0)); }";
+    $layout .= ".carousel-inner { border-radius: 0.5rem; }";
+    $layout .= ".boost-union-frontpage-slider { padding: 15px; }";
 
     return $layout;
 }
