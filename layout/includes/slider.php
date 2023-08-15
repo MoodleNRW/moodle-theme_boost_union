@@ -46,8 +46,6 @@ switch ($config->{'sliderpositiononfrontpage'}) {
 
 $generalsettings->showarrownav = $config->{'sliderarrownavsetting'};
 $generalsettings->showindicatornav = $config->{'sliderindicatornavsetting'};
-$generalsettings->showcaption = $config->{'slidercaptionsetting'};
-$generalsettings->showcontent = $config->{'slidercontentsetting'};
 
 if ($generalsettings->show) {
     switch ($config->{'slideranimationsetting'}) {

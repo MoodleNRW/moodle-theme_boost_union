@@ -653,8 +653,6 @@ $string['sliderfrontpagepositionsetting_before'] = 'before page content';
 $string['sliderfrontpagepositionsetting_after'] = 'after page content';
 $string['sliderarrownavsetting'] = 'Enable Slider arrow navigation';
 $string['sliderindicatornavsetting'] = 'Enable Slider Indicator navigation';
-$string['slidercaptionsetting'] = 'Enable optional caption texts';
-$string['slidercontentsetting'] = 'Enable optional content texts';
 $string['slideranimationsetting'] = 'Animation Type';
 $string['sliderintervalsetting'] = 'Interval Speed';
 $string['sliderintervalsetting_desc'] = 'Duration before slide changes in Miliseconds. Minimum = 1000 (one second), Maximum = 10000 (10 seconds)';
