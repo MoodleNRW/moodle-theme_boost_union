@@ -283,7 +283,7 @@ function theme_boost_union_get_extra_scss($theme) {
     // Instead, the flavour is overriding the background image later in flavours/styles.php.
 
     // Loead slider css if slider setting is enabled.
-    if (get_config("theme_boost_union", "slideractivatedsetting") == THEME_BOOST_UNION_SETTING_SELECT_YES) {
+    if (get_config("theme_boost_union", "slideractivatedsetting")) {
         $content .= theme_boost_union_get_slider_scss();
     }
 
