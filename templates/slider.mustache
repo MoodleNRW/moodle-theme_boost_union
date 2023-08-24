@@ -35,7 +35,8 @@
 
 {{#slidergeneralsettings.show}}
 <div class="boost-union-frontpage-slider">
-  <div id="slider" class="carousel {{slidergeneralsettings.animation}}" data-interval="{{slidergeneralsettings.interval}}" data-pause="hover">
+  <div id="slider" class="carousel {{slidergeneralsettings.animation}}"
+    data-interval="{{slidergeneralsettings.interval}}" data-pause="hover">
 
     {{#slidergeneralsettings.showindicatornav}}
     <ol class="carousel-indicators">
@@ -93,6 +94,8 @@ require(['jquery', 'theme_boost/bootstrap/carousel'], function($) {
 
     $('.carousel').carousel({
       ride: true,
+      keyboard: true,
+      wrap: false,
     });
   }
 });
