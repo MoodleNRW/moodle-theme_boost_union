@@ -44,10 +44,14 @@ switch ($config->{'sliderpositiononfrontpage'}) {
         $templatecontext['sliderpositionafter'] = true;
 }
 
-$generalsettings->showarrownav = $config->{'sliderarrownavsetting'};
-$generalsettings->showindicatornav = $config->{'sliderindicatornavsetting'};
-
 if ($generalsettings->show) {
+
+    $generalsettings->showarrownav = $config->{'sliderarrownavsetting'};
+    $generalsettings->showindicatornav = $config->{'sliderindicatornavsetting'};
+    $generalsettings->keyboard = $config->{'sliderkeyboardsetting'};
+    $generalsettings->pause = $config->{'sliderpausesetting'};
+    $generalsettings->wrap = $config->{'sliderwrapsetting'};
+
     switch ($config->{'slideranimationsetting'}) {
         case 0:
             $generalsettings->animation = "slide";
@@ -64,6 +68,17 @@ if ($generalsettings->show) {
         $generalsettings->interval = 10000;
     } else {
         $generalsettings->interval = $config->{'sliderintervalsetting'};
+    }
+
+    // Bootstrap mixed-value logic.
+    switch ($config->{'sliderridesetting'}) {
+        case 'on page load':
+            $templatecontext['ride'] = "carousel";
+            break;
+        case 'after interaction':
+            $templatecontext['ride'] = true;
+        case 'never':
+            $templatecontext['ride'] = false;
     }
 
     $templatecontext['slidergeneralsettings'] = $generalsettings;

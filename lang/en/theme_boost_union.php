@@ -656,6 +656,14 @@ $string['sliderindicatornavsetting'] = 'Enable slider indicator navigation';
 $string['slideranimationsetting'] = 'Animation type';
 $string['sliderintervalsetting'] = 'Interval speed';
 $string['sliderintervalsetting_desc'] = 'Duration before slide changes in miliseconds. Minimum = 1000 (one second), Maximum = 10000 (10 seconds)';
+$string['sliderridesetting'] = 'Cycle through slides';
+$string['sliderridesetting_desc'] = 'With "on load" the slider will start to cycle through the slides directly after the page loads, "after interaction" will start cycling after a User has interacted with the Slider. You can also choose for the Slider to never cycle through the slides automatically.';
+$string['sliderkeybaordsetting'] = 'Keybaord...';
+$string['sliderkeybaordsetting_desc'] = 'Allow the user to control the slider via keyboard input (arrow keys). Enabling this can help people who are visually and/or physically impaired.';
+$string['sliderpausesetting'] = 'Pause slider on mouseover';
+$string['sliderpausesetting_desc'] = 'This will prevent the slider from cycling through the slides when a user hovers over the slide with the mouse or with their finger on a touchscreen. Enabling this can help people who cannot read quickly, are sensitive to or easily distracted by movement.';
+$string['sliderwrapsetting'] = 'Wrap your head around this!';
+$string['sliderwrapsetting_desc'] = 'Currently set to wrap when true. How tf does one expalin this properly??';
 // ... Section: One Slide.
 $string['oneslidetab'] = 'Slide {$a->no}';
 $string['oneslideenabled'] = 'Enable slide {$a->no}';
