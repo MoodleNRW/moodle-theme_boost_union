@@ -1716,22 +1716,26 @@ if ($hassiteconfig || has_capability('theme/boost_union:configure', context_syst
         $title = get_string('sliderkeybaordsetting', 'theme_boost_union', null, true);
         $description = get_string('sliderkeybaordsetting_desc', 'theme_boost_union', null, true);
         $setting = new admin_setting_configcheckbox("theme_boost_union/sliderkeyboardsetting", $title, $description, 1);
+        $tab->add($setting);
 
         // Setting: Set pause behaviour.
         $title = get_string('sliderpausesetting', 'theme_boost_union', null, true);
         $description = get_string('sliderpausesetting_desc', 'theme_boost_union', null, true);
         $setting = new admin_setting_configcheckbox("theme_boost_union/sliderpausesetting", $title, $description, 1);
+        $tab->add($setting);
 
         // Setting: Set ride behaviour.
         $title = get_string('sliderridesetting', 'theme_boost_union', null, true);
         $description = get_string('sliderridesetting_desc', 'theme_boost_union', null, true);
         $setting = new admin_setting_configselect("theme_boost_union/sliderridesetting", $title, $description, 0,
         array(0 => 'on page load', 1 => 'after interaction', 2 => 'never'));
+        $tab->add($setting);
 
         // Setting: Toggle wrapping.
         $title = get_string('sliderwrapsetting', 'theme_boost_union', null, true);
         $description = get_string('sliderwrapsetting_desc', 'theme_boost_union', null, true);
         $setting = new admin_setting_configcheckbox("theme_boost_union/sliderwrapsetting", $title, $description, 1);
+        $tab->add($setting);
 
         // Create a hardcoded amount of slides.
         for ($i = 1; $i <= THEME_BOOST_UNION_SETTING_SLIDES_COUNT; $i++) {
