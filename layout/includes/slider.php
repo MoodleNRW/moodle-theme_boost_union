@@ -78,18 +78,18 @@ if ($generalsettings->show) {
             $templatecontext['ride'] = false;
     }
 
-    // Manual Array-mapping to deal with some boolean values. PHP sends HTML 1/0 instead of true/false. Bootstrap needs real boolean values.
-    function mapboolean ($var) {
+    // PHP translates booleans to 1/0 instead of true/false. Bootstrap needs real boolean values.
+    function boolean_to_string ($var) {
         if ($var == 1) {
             return "true";
         } else {
             return "false";
         }
     }
-    $generalsettings->keyboard = mapboolean($config->{'sliderkeyboardsetting'});
-    $generalsettings->pause = mapboolean($config->{'sliderpausesetting'});
-    $generalsettings->ride = mapboolean($config->{'sliderridesetting'});
-    $generalsettings->wrap = mapboolean($config->{'sliderwrapsetting'});
+    $generalsettings->keyboard = boolean_to_string($config->{'sliderkeyboardsetting'});
+    $generalsettings->pause = boolean_to_string($config->{'sliderpausesetting'});
+    $generalsettings->ride = boolean_to_string($config->{'sliderridesetting'});
+    $generalsettings->wrap = boolean_to_string($config->{'sliderwrapsetting'});
 
 
     $templatecontext['slidergeneralsettings'] = $generalsettings;
