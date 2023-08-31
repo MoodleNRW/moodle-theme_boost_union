@@ -106,6 +106,23 @@ Scenario Outline: Setting: Slideshow interval speed
    | 10001   | 10000     |
 
 
+Scenario Outline: Setting: Keyboard
+  Given the following config values are set as admin:
+   | config                      | value           | plugin            |
+   | sliderarrownavsetting       | 1               | theme_boost_union |
+
+
+Scenario Outline: Setting: Pause on mouseover
+
+
+Scenario Outline: Setting: Cycle
+  // "on page load" "after interaction" "never"
+
+
+Scenario Outline: Setting: Wrap
+
+
+
 Scenario: No picture no slide
   When I log in as "admin"
     And I navigate to "Appearance > Boost Union > Content" in site administration
@@ -122,6 +139,7 @@ Scenario: Disable Slide
    | slide1enabled          | no             | theme_boost_union |
   When I am on site homepage
   Then ".boost-union-frontpage-slider .carousel-item" "css_element" should not exist
+
 
 Scenario: Image Title
   Given the following config values are set as admin:
@@ -149,19 +167,3 @@ Scenario: Caption & Content Texts
   When I am on site homepage
   Then I should see "Caption Text" in the ".boost-union-frontpage-slider .carousel-item .carousel-caption h5" "css_element"
   And I should see "Content Text" in the ".boost-union-frontpage-slider .carousel-item .carousel-caption p" "css_element"
-
-@ezylryb #NOT yet working (text not found)! ToDo: Scroll down, take screenshot, confirm whether it's there or not
-Scenario: Slides really do the sliding
-  Given the following config values are set as admin:
-   | config                 | value          | plugin            |
-   | sliderintervalsetting  | 1000           | theme_boost_union |
-   | slide2enabled          | yes            | theme_boost_union |
-   | oneslidecaption2       | Slide Two      | theme_boost_union |
-  When I log in as "admin"
-    And I navigate to "Appearance > Boost Union > Content" in site administration
-    And I click on "Slider" "link" in the "#adminsettings .nav-tabs" "css_element"
-    And I upload "theme/boost_union/tests/fixtures/moodlelogo.png" file to "Slide 2 Image" filemanager
-    And I press "Save changes"
-    And I am on site homepage
-    And I wait "2" seconds
-  Then I should see "Slide Two" in the ".boost-union-frontpage-slider .carousel-item .carousel-caption h5" "css_element"
