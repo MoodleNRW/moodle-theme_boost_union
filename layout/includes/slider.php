@@ -48,9 +48,6 @@ if ($generalsettings->show) {
 
     $generalsettings->showarrownav = $config->{'sliderarrownavsetting'};
     $generalsettings->showindicatornav = $config->{'sliderindicatornavsetting'};
-    $generalsettings->keyboard = $config->{'sliderkeyboardsetting'};
-    $generalsettings->pause = $config->{'sliderpausesetting'};
-    $generalsettings->wrap = $config->{'sliderwrapsetting'};
 
     switch ($config->{'slideranimationsetting'}) {
         case 0:
@@ -80,6 +77,20 @@ if ($generalsettings->show) {
         case 'never':
             $templatecontext['ride'] = false;
     }
+
+    // Manual Array-mapping to deal with some boolean values. PHP sends HTML 1/0 instead of true/false. Bootstrap needs real boolean values.
+    function mapboolean ($var) {
+        if ($var == 1) {
+            return "true";
+        } else {
+            return "false";
+        }
+    }
+    $generalsettings->keyboard = mapboolean($config->{'sliderkeyboardsetting'});
+    $generalsettings->pause = mapboolean($config->{'sliderpausesetting'});
+    $generalsettings->ride = mapboolean($config->{'sliderridesetting'});
+    $generalsettings->wrap = mapboolean($config->{'sliderwrapsetting'});
+
 
     $templatecontext['slidergeneralsettings'] = $generalsettings;
 
