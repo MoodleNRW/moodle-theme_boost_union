@@ -69,14 +69,17 @@ if ($generalsettings->show) {
 
     // Bootstrap mixed-value logic.
     switch ($config->{'sliderridesetting'}) {
-        case 'on page load':
+        case 0:
             $templatecontext['ride'] = "carousel";
             break;
-        case 'after interaction':
-            $templatecontext['ride'] = true;
-        case 'never':
-            $templatecontext['ride'] = false;
+        case 1:
+            $templatecontext['ride'] = "true";
+            break;
+        case 2:
+            $templatecontext['ride'] = "false";
     }
+
+    $generalsettings->ride = $templatecontext['ride'];
 
     // PHP translates booleans to 1/0 instead of true/false. Bootstrap needs real boolean values.
     function boolean_to_string ($var) {
@@ -88,7 +91,6 @@ if ($generalsettings->show) {
     }
     $generalsettings->keyboard = boolean_to_string($config->{'sliderkeyboardsetting'});
     $generalsettings->pause = boolean_to_string($config->{'sliderpausesetting'});
-    $generalsettings->ride = boolean_to_string($config->{'sliderridesetting'});
     $generalsettings->wrap = boolean_to_string($config->{'sliderwrapsetting'});
 
 

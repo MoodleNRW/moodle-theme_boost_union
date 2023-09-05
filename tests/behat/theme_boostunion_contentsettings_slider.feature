@@ -18,7 +18,7 @@ Background:
     And I log in as "admin"
     And I navigate to "Appearance > Boost Union > Content" in site administration
     And I click on "Slider" "link" in the "#adminsettings .nav-tabs" "css_element"
-    And I upload "theme/boost_union/tests/fixtures/login_bg1.jpg" file to "Slide 1 Image" filemanager
+    And I upload "theme/boost_union/tests/fixtures/login_bg1.jpg" file to "Slide 1 image" filemanager
     And I press "Save changes"
 
 
@@ -105,7 +105,7 @@ Scenario Outline: Setting: Slideshow interval speed
    | 4321    | 4321      |
    | 10001   | 10000     |
 
-@ezylryb
+
 Scenario Outline: Setting: Ride
   Given the following config values are set as admin:
    | config                      | value           | plugin            |
@@ -115,17 +115,17 @@ Scenario Outline: Setting: Ride
 
   Examples:
    | setting | ride      |
+   | 0       | carousel  |
    | 1       | true      |
-   | 0       | false     |
+   | 2       | false     |
 
 
-@ezylryb
 Scenario Outline: Setting: Keyboard
   Given the following config values are set as admin:
    | config                      | value           | plugin            |
    | sliderkeyboardsetting       | <setting>       | theme_boost_union |
   When I am on site homepage
-  Then the "data-keybaord" attribute of "#slider" "css_element" should contain "<keyboard>"
+  Then the "data-keyboard" attribute of "#slider" "css_element" should contain "<keyboard>"
 
   Examples:
    | setting | keyboard  |
@@ -133,7 +133,7 @@ Scenario Outline: Setting: Keyboard
    | 0       | false     |
 
 
-@ezylryb
+
 Scenario Outline: Setting: Pause on mouseover
   Given the following config values are set as admin:
    | config                    | value           | plugin            |
@@ -146,7 +146,7 @@ Scenario Outline: Setting: Pause on mouseover
    | 1       | true      |
    | 0       | false     |
 
-@ezylryb
+
 Scenario Outline: Setting: Cycle/ Wrap
     Given the following config values are set as admin:
    | config                    | value           | plugin            |
@@ -155,10 +155,9 @@ Scenario Outline: Setting: Cycle/ Wrap
   Then the "data-wrap" attribute of "#slider" "css_element" should contain "<wrap>"
 
   Examples:
-   | setting | wrap                  |
-   | 0       | on page load          |
-   | 1       | after interaction     |
-   | 2       | never                 |
+   | setting | wrap      |
+   | 1       | true      |
+   | 0       | false     |
 
 
 Scenario: No picture no slide
