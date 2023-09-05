@@ -105,22 +105,60 @@ Scenario Outline: Setting: Slideshow interval speed
    | 4321    | 4321      |
    | 10001   | 10000     |
 
+@ezylryb
+Scenario Outline: Setting: Ride
+  Given the following config values are set as admin:
+   | config                      | value           | plugin            |
+   | sliderridesetting           | <setting>       | theme_boost_union |
+  When I am on site homepage
+  Then the "data-ride" attribute of "#slider" "css_element" should contain "<ride>"
 
+  Examples:
+   | setting | ride      |
+   | 1       | true      |
+   | 0       | false     |
+
+
+@ezylryb
 Scenario Outline: Setting: Keyboard
   Given the following config values are set as admin:
    | config                      | value           | plugin            |
-   | sliderarrownavsetting       | 1               | theme_boost_union |
+   | sliderkeyboardsetting       | <setting>       | theme_boost_union |
+  When I am on site homepage
+  Then the "data-keybaord" attribute of "#slider" "css_element" should contain "<keyboard>"
+
+  Examples:
+   | setting | keyboard  |
+   | 1       | true      |
+   | 0       | false     |
 
 
+@ezylryb
 Scenario Outline: Setting: Pause on mouseover
+  Given the following config values are set as admin:
+   | config                    | value           | plugin            |
+   | sliderpausesetting        | <setting>       | theme_boost_union |
+  When I am on site homepage
+  Then the "data-pause" attribute of "#slider" "css_element" should contain "<pause>"
 
+  Examples:
+   | setting | pause     |
+   | 1       | true      |
+   | 0       | false     |
 
-Scenario Outline: Setting: Cycle
-  // "on page load" "after interaction" "never"
+@ezylryb
+Scenario Outline: Setting: Cycle/ Wrap
+    Given the following config values are set as admin:
+   | config                    | value           | plugin            |
+   | sliderwrapsetting         | <setting>       | theme_boost_union |
+  When I am on site homepage
+  Then the "data-wrap" attribute of "#slider" "css_element" should contain "<wrap>"
 
-
-Scenario Outline: Setting: Wrap
-
+  Examples:
+   | setting | wrap                  |
+   | 0       | on page load          |
+   | 1       | after interaction     |
+   | 2       | never                 |
 
 
 Scenario: No picture no slide
