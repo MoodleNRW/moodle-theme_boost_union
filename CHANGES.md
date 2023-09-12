@@ -6,6 +6,43 @@ Changes
 
 ### Unreleased
 
+* 2023-09-09 - Release: Adopt theme_boost changes from MDL-78656 to moremenu_children.mustache template, align menu item icon and tooltip handling at the same time, solves #385.
+* 2023-08-30 - Improvement: Align actions column on flavours and smart menus settings pages, solves #381.
+* 2023-08-19 - Improvement: Fix more mustache linter warnings, solves #360.
+* 2023-08-02 - Improvement: Add 'aboutus', 'offers', 'page1', 'page2' and 'page3' static pages, solves #351.
+* 2023-08-19 - Bugfix: Fix unparsable example JSON in Mustache template, solves #348.
+* 2023-08-18 - Improvement: Add CSS and Scripts for local_och5p local_och5pcore to the theme renderer.
+* 2023-08-13 - Improvement: Make the fonts in the dark navbar variants always fully white (not only when hovered) to improve the contrast.
+* 2023-08-13 - Feature: Smart menus, solves #137
+
+### v4.1-r9
+
+* 2023-07-24 - Improvement: Only add load OffCanvas module when offcanvas region is enabled, solves #343.
+* 2023-07-11 - Improvement: Place mustache templates which are overridden from theme_boost into subfolder, solves #337.
+* 2023-07-10 - Bugfix: Omit warning when no CSS cached folder present, solves #330.
+* 2023-07-10 - Bugfix: Overwriting module purposes did not affect all places where the activity icon is displayed, solves #318.
+* 2023-07-07 - Bugfix: Changing module purpose to "other" made icon background white instead of grey, solves #333.
+* 2023-07-07 - Bugfix: Changing module purpose to "other" made icon invisible, solves #319.
+* 2023-06-26 - Bugfix: If the settings blockregionoutsiderightwidth or blockregionoutsiderightwidth were not set for any reason, the SCSS was not compiled, solves #325.
+
+### v4.1-r8
+
+* 2023-06-18 - Improvement: Split "Branding" tab into "Site branding" and "Activity branding", solves #315.
+* 2023-06-17 - Bugfix: Hide nodes in primary navigation had no effect on site administration menu item, solves #312.
+* 2023-06-14 - Feature: Add admin option to configure block size in footer, solves first part of #253.
+* 2023-06-03 - Bugfix: Help fixing PHPUnit runs with Boost Union, solves #305.
+* 2023-06-14 - Bugfix: Fix footer and footnote placement, solves #269.
+* 2023-06-13 - Feature: Add admin option to mark external links, solves #307.
+* 2023-06-13 - Feature: Allow the admin to overwrite the modules purpose, solves #288.
+* 2023-05-17 - Improvement: Improve SCSS for dark navbar and primary color navbar, solves #273.
+* 2023-05-11 - Feature: Allow the admin to upload custom icons for activities and resources, solves #175.
+
+### v4.1-r7
+
+* 2023-04-20 - Feature: Course category breadcrumbs in course header, solves #284.
+* 2023-04-02 - Improvement: Add SCSS code to improve the block regions presentation in our companion plugin Dash Pro, solves #291.
+* 2023-04-17 - Bugfix: Setting activityiconcolorcommunication was not processed anymore, solves #279.
+* 2023-04-13 - Bugfix: When there is no edit switch, as on the assignment grading page, scrollfix should not kick in, solves #276.
 * 2023-04-12 - Feature: Allow right-side blocks drawer of site home to be extended by default #169.
 
 ### v4.1-r6
