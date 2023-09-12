@@ -1800,7 +1800,7 @@ if ($hassiteconfig || has_capability('theme/boost_union:configure', context_syst
             // Setting: Set Content text.
             $name = 'theme_boost_union/oneslidecontent'.$i;
             $title = get_string('oneslidecontent', 'theme_boost_union', array('no' => $i), null, true);
-            $setting = new admin_setting_confightmleditor($name, $title, "", $rows='4');
+            $setting = new admin_setting_confightmleditor($name, $title, "", $rows = '4');
             $tab->add($setting);
             $page->hide_if('theme_boost_union/oneslidecontent'.$i, 'theme_boost_union/slide'.$i.'enabled', 'neq',
             THEME_BOOST_UNION_SETTING_SELECT_YES);
