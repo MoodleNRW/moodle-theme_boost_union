@@ -664,7 +664,7 @@ $string['sliderpausesetting'] = 'Pause slider on mouseover';
 $string['sliderpausesetting_desc'] = 'This will prevent the slider from cycling through the slides when a user hovers over the slide with the mouse or with their finger on a touchscreen. Enabling this can help people who cannot read quickly, are sensitive to or easily distracted by movement.';
 $string['sliderwrapsetting'] = 'Wrap your head around this!';
 $string['sliderwrapsetting_desc'] = 'Currently set to wrap when true. How tf does one expalin this properly??';
-// ... Section: One Slide.
+// ... Section: Slides.
 $string['oneslidetab'] = 'Slide {$a->no}';
 $string['oneslideenabled'] = 'Enable slide {$a->no}';
 $string['oneslideenabled_desc'] = 'Enable to expand slide configuration. An image is required for the slide to be included.';

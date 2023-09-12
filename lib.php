@@ -282,7 +282,7 @@ function theme_boost_union_get_extra_scss($theme) {
     // is composing Moodle core CSS which has to remain flavour-independent.
     // Instead, the flavour is overriding the background image later in flavours/styles.php.
 
-    // Loead slider css if slider setting is enabled.
+    // Load slider css if slider setting is enabled.
     if (get_config("theme_boost_union", "slideractivatedsetting")) {
         $content .= theme_boost_union_get_slider_scss();
     }
